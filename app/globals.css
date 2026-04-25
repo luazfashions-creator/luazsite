@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --luaz-white: #F8F6F2;
+  --luaz-stone: #EDE8E0;
+  --luaz-mist: #D4CEC6;
+  --luaz-grey: #9E9890;
+  --luaz-deep: #2A2724;
+  --luaz-accent: #B8A898;
+  --luaz-night: #111916;
+  --luaz-forest: #17231f;
+  --luaz-ember: #C9B28E;
+  --font-display: var(--cormorant);
+  --font-body: var(--cormorant);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--luaz-white);
+  scroll-behavior: auto;
+  scrollbar-color: var(--luaz-mist) transparent;
+  scrollbar-width: thin;
+}
+
+body {
+  background: var(--luaz-white);
+  color: var(--luaz-deep);
+  font-family: var(--font-display), Cormorant Garamond, serif;
+  font-weight: 300;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+button,
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--luaz-accent);
+  color: var(--luaz-white);
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--luaz-mist);
+}
+
+.luaz-film-grain {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(248, 246, 242, 0.09) 0 1px, transparent 1px),
+    radial-gradient(circle at 72% 64%, rgba(248, 246, 242, 0.05) 0 1px, transparent 1px);
+  background-size: 3px 3px, 5px 5px;
+  mix-blend-mode: overlay;
+}
+
+.luaz-cinema-bars::before,
+.luaz-cinema-bars::after {
+  content: "";
+  height: clamp(28px, 7.2vh, 82px);
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 45;
+}
+
+.luaz-cinema-bars::before {
+  background: linear-gradient(180deg, rgba(8, 12, 10, 0.94), rgba(8, 12, 10, 0));
+  top: 0;
+}
+
+.luaz-cinema-bars::after {
+  background: linear-gradient(0deg, rgba(8, 12, 10, 0.94), rgba(8, 12, 10, 0));
+  bottom: 0;
+}
+
+.luaz-specular {
+  background:
+    linear-gradient(112deg, transparent 0%, rgba(255, 255, 255, 0.28) 38%, transparent 52%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22), transparent 58%);
+  mix-blend-mode: screen;
+}
