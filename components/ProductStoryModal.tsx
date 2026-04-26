@@ -30,7 +30,7 @@ export function ProductStoryModal({ product, onClose }: ProductStoryModalProps) 
     <AnimatePresence>
       {product ? (
         <motion.div
-          className="fixed inset-0 z-[80] bg-luaz-void/92 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] bg-luaz-void/94 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -40,7 +40,7 @@ export function ProductStoryModal({ product, onClose }: ProductStoryModalProps) 
             type="button"
             aria-label="Close product story"
             onClick={onClose}
-            className="absolute right-5 top-5 z-20 rounded-[8px] border border-luaz-paper/14 bg-luaz-graphite/64 px-4 py-3 text-[12px] uppercase text-luaz-paper/76 transition-colors duration-500 hover:border-luaz-paper/28 hover:text-luaz-paper md:right-8 md:top-8"
+            className="fixed right-4 top-4 z-20 rounded-[8px] border border-luaz-paper/14 bg-luaz-graphite/82 px-4 py-3 text-[12px] uppercase text-luaz-paper/76 backdrop-blur-md transition-colors duration-500 hover:border-luaz-paper/28 hover:text-luaz-paper md:absolute md:right-8 md:top-8 md:bg-luaz-graphite/64"
             whileHover={{ y: -2 }}
           >
             Close
@@ -53,7 +53,7 @@ export function ProductStoryModal({ product, onClose }: ProductStoryModalProps) 
             exit={{ y: 26, scale: 0.99 }}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative min-h-[58vh] overflow-hidden md:min-h-screen">
+            <div className="relative min-h-[42svh] overflow-hidden md:min-h-screen">
               {hasVideo ? (
                 <video
                   src={product.video}
@@ -82,18 +82,18 @@ export function ProductStoryModal({ product, onClose }: ProductStoryModalProps) 
               </div>
             </div>
 
-            <div className="flex min-h-screen items-center px-5 py-24 md:px-14 lg:px-20">
+            <div className="flex min-h-0 items-center px-4 py-12 sm:px-5 md:min-h-screen md:px-14 md:py-24 lg:px-20">
               <div className="max-w-[620px]">
                 <p className="text-[12px] uppercase" style={{ color: product.tone }}>
                   {product.shortLabel}
                 </p>
-                <h2 className="mt-6 font-display text-[4.2rem] leading-[0.88] text-luaz-paper md:text-[6.4rem]">
+                <h2 className="mt-5 font-display text-[3.25rem] leading-[0.9] text-luaz-paper sm:text-[3.8rem] md:mt-6 md:text-[6.4rem] md:leading-[0.88]">
                   {product.name}
                 </h2>
-                <p className="mt-8 text-[20px] leading-8 text-luaz-paper/86 md:text-[24px] md:leading-9">
+                <p className="mt-6 text-[18px] leading-7 text-luaz-paper/86 md:mt-8 md:text-[24px] md:leading-9">
                   {product.ritualRole}
                 </p>
-                <div className="mt-12 grid gap-8 border-t border-luaz-paper/12 pt-10 text-[15px] leading-7 text-luaz-mist/68 md:grid-cols-2">
+                <div className="mt-9 grid gap-6 border-t border-luaz-paper/12 pt-8 text-[15px] leading-7 text-luaz-mist/72 md:mt-12 md:grid-cols-2 md:gap-8 md:pt-10 md:text-luaz-mist/68">
                   <p>{product.description}</p>
                   <p>{product.systemReason}</p>
                 </div>

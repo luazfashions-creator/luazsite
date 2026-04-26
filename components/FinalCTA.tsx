@@ -6,7 +6,7 @@ export function FinalCTA() {
   return (
     <section
       id="invitation"
-      className="cinema-vignette relative grid min-h-screen place-items-center overflow-hidden bg-luaz-void px-5 py-28 text-center"
+      className="cinema-vignette relative grid min-h-[88svh] place-items-center overflow-hidden bg-luaz-void px-4 py-20 text-center sm:px-5 md:min-h-screen md:py-28"
     >
       <img
         src="/assets/heroimage.png"
@@ -22,10 +22,10 @@ export function FinalCTA() {
         className="relative z-10 mx-auto max-w-[980px]"
       >
         <p className="text-[12px] uppercase text-luaz-herb">Invitation</p>
-        <h2 className="mt-6 font-display text-[4.8rem] leading-[0.86] text-luaz-paper md:text-[8.5rem]">
+        <h2 className="mt-5 font-display text-[3.45rem] leading-[0.9] text-luaz-paper sm:text-[4.2rem] md:mt-6 md:text-[8.5rem] md:leading-[0.86]">
           Let the day close with intention.
         </h2>
-        <p className="mx-auto mt-9 max-w-[560px] text-[16px] leading-8 text-luaz-mist/68">
+        <p className="mx-auto mt-7 max-w-[560px] text-[15px] leading-7 text-luaz-mist/72 md:mt-9 md:text-[16px] md:leading-8 md:text-luaz-mist/68">
           LUAZ turns intensity into recovery through a measured sequence of
           warmth, release, scent, atmosphere, and touch.
         </p>
@@ -33,7 +33,7 @@ export function FinalCTA() {
           href="#top"
           whileHover={{ y: -4, scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className="mt-12 inline-flex rounded-[8px] border border-luaz-paper/18 px-7 py-4 text-[12px] uppercase text-luaz-paper transition-colors duration-500 hover:border-luaz-herb"
+          className="mt-10 inline-flex rounded-[8px] border border-luaz-paper/18 px-6 py-4 text-[12px] uppercase text-luaz-paper transition-colors duration-500 hover:border-luaz-herb md:mt-12 md:px-7"
         >
           Enter the ritual
         </motion.a>

@@ -41,11 +41,11 @@ const tabletPositions: FloatingPosition[] = [
 ];
 
 const mobilePositions: FloatingPosition[] = [
-  { x: -92, y: -250, rotate: -7, scale: 0.66 },
-  { x: -106, y: -36, rotate: 6, scale: 0.62 },
-  { x: 88, y: -238, rotate: 4, scale: 0.64 },
-  { x: 100, y: -30, rotate: -5, scale: 0.62 },
-  { x: 2, y: 174, rotate: 2, scale: 0.64 }
+  { x: -72, y: -204, rotate: -6, scale: 0.58 },
+  { x: -82, y: -30, rotate: 5, scale: 0.54 },
+  { x: 78, y: -190, rotate: 4, scale: 0.56 },
+  { x: 82, y: -20, rotate: -5, scale: 0.54 },
+  { x: 0, y: 138, rotate: 2, scale: 0.56 }
 ];
 
 const itemContainerVariants = {
@@ -195,7 +195,7 @@ function FloatingItem({
           ease: "easeInOut",
           repeat: isOpen && !reduceMotion ? Infinity : 0
         }}
-        className="w-[148px] -translate-x-1/2 -translate-y-1/2 md:w-[192px]"
+        className="w-[126px] -translate-x-1/2 -translate-y-1/2 sm:w-[148px] md:w-[192px]"
       >
         <motion.div
           onHoverStart={() => setIsHovered(true)}
@@ -206,7 +206,7 @@ function FloatingItem({
             scale: 1.1,
             transition: { stiffness: 120, damping: 18, mass: 0.65, type: "spring" }
           }}
-          className="group overflow-hidden rounded-[8px] border border-luaz-paper/10 bg-[#f7f6ef] shadow-[0_34px_110px_rgba(23,43,40,0.2)]"
+          className="group overflow-hidden rounded-[8px] border border-luaz-paper/10 bg-[#f7f6ef] shadow-[0_22px_70px_rgba(23,43,40,0.18)] md:shadow-[0_34px_110px_rgba(23,43,40,0.2)]"
         >
           <div className="relative aspect-[4/5] overflow-hidden">
             <img
@@ -234,12 +234,12 @@ function FloatingItem({
               </p>
             </motion.div>
           </div>
-          <div className="px-4 py-4">
+          <div className="px-3 py-3 md:px-4 md:py-4">
             <div className="flex items-center justify-between gap-4 text-[10px] uppercase text-luaz-mist/62">
               <span>{String(index + 1).padStart(2, "0")}</span>
               <span style={{ color: product.tone }}>{product.shortLabel}</span>
             </div>
-            <p className="mt-4 text-[14px] leading-5 text-luaz-paper">
+            <p className="mt-3 text-[13px] leading-4 text-luaz-paper md:mt-4 md:text-[14px] md:leading-5">
               {product.name}
             </p>
           </div>
@@ -296,8 +296,8 @@ export function PremiumRitualScroll() {
   const luazLetterY = useTransform(progress, [0.055, 0.18], [44, 0]);
 
   const targetX = isDesktop ? -width * 0.32 : isTablet ? -width * 0.24 : 0;
-  const targetY = isDesktop ? -height * 0.006 : isTablet ? -height * 0.02 : -height * 0.245;
-  const targetScale = isDesktop ? 0.53 : isTablet ? 0.62 : 0.58;
+  const targetY = isDesktop ? -height * 0.006 : isTablet ? -height * 0.02 : -height * 0.22;
+  const targetScale = isDesktop ? 0.53 : isTablet ? 0.62 : 0.5;
 
   const brandX = useTransform(layoutProgress, [0.34, 0.56], [0, targetX]);
   const brandY = useTransform(layoutProgress, [0.34, 0.56], [0, targetY]);
@@ -322,9 +322,9 @@ export function PremiumRitualScroll() {
   const phrase = "Instantly calms you down".split(" ");
 
   return (
-    <section ref={sectionRef} id="top" className="relative h-[680vh] bg-luaz-void">
+    <section ref={sectionRef} id="top" className="relative h-[560vh] bg-luaz-void md:h-[680vh]">
       <span id="ritual" className="absolute top-[100vh]" aria-hidden="true" />
-      <div className="sticky top-0 h-[100svh] min-h-[620px] overflow-hidden bg-[#172b28]">
+      <div className="sticky top-0 h-[100svh] min-h-[560px] overflow-hidden bg-[#172b28] md:min-h-[620px]">
         <motion.img
           src="/assets/heroimage.png"
           alt="LUAZ evening ritual atmosphere"
@@ -332,16 +332,16 @@ export function PremiumRitualScroll() {
           fetchPriority="high"
           decoding="async"
           style={{ opacity: backgroundOpacity, scale: backgroundScale, y: backgroundY }}
-          className="absolute inset-0 h-full w-full object-cover object-[43%_center] saturate-[0.95]"
+          className="absolute inset-0 h-full w-full object-cover object-[48%_center] saturate-[0.95] md:object-[43%_center]"
         />
         <motion.div
           style={{ opacity: veilOpacity }}
-          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,28,26,0.7),rgba(16,28,26,0.08)_42%,rgba(16,28,26,0.72)),linear-gradient(180deg,rgba(16,28,26,0.02),rgba(16,28,26,0.58)_82%,#eaf0ec_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,28,26,0.76),rgba(16,28,26,0.18)_50%,rgba(16,28,26,0.76)),linear-gradient(180deg,rgba(16,28,26,0.06),rgba(16,28,26,0.6)_76%,#eaf0ec_100%)] md:bg-[linear-gradient(90deg,rgba(16,28,26,0.7),rgba(16,28,26,0.08)_42%,rgba(16,28,26,0.72)),linear-gradient(180deg,rgba(16,28,26,0.02),rgba(16,28,26,0.58)_82%,#eaf0ec_100%)]"
         />
         <div className="luaz-noise absolute inset-0 opacity-[0.18]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(246,247,242,0.045),transparent_44%)]" />
 
-        <div className="absolute left-1/2 top-1/2 z-20 w-[calc(100%_-_40px)] max-w-[1500px] -translate-x-1/2 -translate-y-1/2 text-[#f6f7f2] md:w-[calc(100%_-_64px)]">
+        <div className="absolute left-1/2 top-[44%] z-20 w-[calc(100%_-_32px)] max-w-[1500px] -translate-x-1/2 -translate-y-1/2 text-[#f6f7f2] md:top-1/2 md:w-[calc(100%_-_64px)]">
           <motion.div
             layoutId="luaz-breathe-lockup"
             style={{ scale: brandScale, x: brandX, y: brandY }}
@@ -354,13 +354,13 @@ export function PremiumRitualScroll() {
                 scale: luazBreathScale,
                 y: luazLetterY
               }}
-              className="font-display text-[7.2rem] leading-[0.76] md:text-[13rem] lg:text-[16rem] xl:text-[19rem]"
+              className="font-display text-[5.7rem] leading-[0.78] sm:text-[6.5rem] md:text-[13rem] lg:text-[16rem] xl:text-[19rem]"
             >
               LUAZ
             </motion.h1>
             <motion.p
               style={{ opacity: copyOpacity, y: copyY }}
-              className="mt-7 flex flex-wrap justify-center gap-x-3 gap-y-1 font-display text-[2.55rem] leading-[0.95] text-[#f6f7f2] md:mt-5 md:text-[4.6rem]"
+              className="mt-5 flex max-w-[21rem] flex-wrap justify-center gap-x-2 gap-y-1 font-display text-[2.05rem] leading-[0.98] text-[#f6f7f2] sm:max-w-none sm:text-[2.35rem] md:mt-5 md:text-[4.6rem]"
             >
               {phrase.map((word, index) => (
                 <BlurWord
@@ -374,7 +374,7 @@ export function PremiumRitualScroll() {
           </motion.div>
         </div>
 
-        <div className="absolute left-1/2 top-[59%] z-30 w-[294px] -translate-x-1/2 -translate-y-1/2 md:left-[68%] md:top-1/2 md:w-[410px]">
+        <div className="absolute left-1/2 top-[64%] z-30 w-[232px] -translate-x-1/2 -translate-y-1/2 sm:w-[276px] md:left-[68%] md:top-1/2 md:w-[410px]">
           <motion.div
             style={{
               filter: boxFilter,
@@ -384,7 +384,7 @@ export function PremiumRitualScroll() {
               scale: boxScale,
               y: boxY
             }}
-            className="relative h-[430px] transform-gpu md:h-[520px]"
+            className="relative h-[348px] transform-gpu sm:h-[410px] md:h-[520px]"
           >
             <div className="absolute inset-0" style={{ perspective: 1800 }}>
               <motion.div
@@ -422,7 +422,7 @@ export function PremiumRitualScroll() {
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(246,247,242,0.2),rgba(23,43,40,0.18))]" />
                 <div className="absolute inset-0 grid place-items-center">
                   <div className="text-center text-[#f6f7f2]">
-                    <p className="font-display text-[4.3rem] leading-none md:text-[5.6rem]">
+                    <p className="font-display text-[3.25rem] leading-none md:text-[5.6rem]">
                       LUAZ
                     </p>
                     <p className="mt-3 text-[10px] uppercase tracking-normal text-[#f6f7f2]/62">
@@ -455,7 +455,7 @@ export function PremiumRitualScroll() {
 
         <motion.div
           style={{ scaleX: lineScale }}
-          className="absolute bottom-24 left-1/2 z-10 h-px w-[min(72vw,880px)] origin-center -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(246,247,242,0.42),transparent)]"
+          className="absolute bottom-20 left-1/2 z-10 h-px w-[min(78vw,880px)] origin-center -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(246,247,242,0.42),transparent)] md:bottom-24 md:w-[min(72vw,880px)]"
         />
         <motion.div
           style={{ opacity: scrollCueOpacity }}

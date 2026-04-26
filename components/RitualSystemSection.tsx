@@ -10,7 +10,7 @@ export function RitualSystemSection() {
   const activeProduct = products[activeStep] ?? products[products.length - 1];
 
   return (
-    <section id="origin" className="relative overflow-hidden bg-luaz-ink px-5 py-28 md:px-8 md:py-40">
+    <section id="origin" className="relative overflow-hidden bg-luaz-ink px-4 py-20 sm:px-5 md:px-8 md:py-40">
       <img
         src="/assets/back_box_sample_1.png"
         alt="LUAZ ritual box materials"
@@ -19,15 +19,15 @@ export function RitualSystemSection() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#d8e4df,#f6f7f2_48%,#eaf0ec)]" />
 
       <div className="relative mx-auto max-w-[1480px]">
-        <div className="grid gap-12 md:grid-cols-[0.86fr_1.14fr] md:items-start">
+        <div className="grid gap-10 md:grid-cols-[0.86fr_1.14fr] md:items-start md:gap-12">
           <div className="md:sticky md:top-28">
             <p className="text-[12px] uppercase text-luaz-mineral">Evening architecture</p>
-            <h2 className="mt-5 max-w-[620px] font-display text-[4.4rem] leading-[0.9] text-luaz-paper md:text-[7rem]">
+            <h2 className="mt-4 max-w-[620px] font-display text-[3.25rem] leading-[0.92] text-luaz-paper sm:text-[3.8rem] md:mt-5 md:text-[7rem]">
               Made for controlled deceleration.
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-2 md:space-y-6">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -38,7 +38,7 @@ export function RitualSystemSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-14%" }}
                 transition={{ duration: 0.8, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative grid cursor-default gap-6 overflow-hidden rounded-[8px] border-t border-luaz-paper/12 px-0 py-8 outline-none transition-colors duration-500 focus-visible:border-luaz-herb md:grid-cols-[110px_1fr] md:px-5"
+                className="group relative grid cursor-default gap-3 overflow-hidden rounded-[8px] border-t border-luaz-paper/12 px-0 py-6 outline-none transition-colors duration-500 focus-visible:border-luaz-herb md:grid-cols-[110px_1fr] md:gap-6 md:px-5 md:py-8"
               >
                 <motion.div
                   className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
@@ -52,10 +52,10 @@ export function RitualSystemSection() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <h3 className="font-display text-[3rem] leading-none text-luaz-paper md:text-[4.2rem]">
+                  <h3 className="font-display text-[2.35rem] leading-none text-luaz-paper sm:text-[2.8rem] md:text-[4.2rem]">
                     {product.shortLabel}
                   </h3>
-                  <p className="mt-5 max-w-[560px] text-[15px] leading-7 text-luaz-mist/64">
+                  <p className="mt-4 max-w-[560px] text-[14px] leading-6 text-luaz-mist/72 md:mt-5 md:text-[15px] md:leading-7 md:text-luaz-mist/64">
                     {product.conceptTitle}
                   </p>
                 </div>
@@ -64,8 +64,8 @@ export function RitualSystemSection() {
           </div>
         </div>
 
-        <div className="mt-28 grid gap-6 overflow-hidden rounded-[8px] border border-luaz-paper/12 bg-luaz-graphite/64 p-5 md:grid-cols-[0.9fr_1.1fr] md:p-8">
-          <div className="relative min-h-[340px] overflow-hidden rounded-[8px] border border-luaz-paper/10">
+        <div className="mt-16 grid gap-5 overflow-hidden rounded-[8px] border border-luaz-paper/12 bg-luaz-graphite/64 p-4 md:mt-28 md:grid-cols-[0.9fr_1.1fr] md:gap-6 md:p-8">
+          <div className="relative min-h-[430px] overflow-hidden rounded-[8px] border border-luaz-paper/10 md:min-h-[340px]">
             <motion.img
               key={activeProduct.id}
               src={activeProduct.image}
@@ -80,7 +80,7 @@ export function RitualSystemSection() {
               <p className="text-[11px] uppercase" style={{ color: activeProduct.tone }}>
                 Current cue
               </p>
-              <h3 className="mt-3 font-display text-[3.2rem] leading-none text-luaz-paper md:text-[4.4rem]">
+              <h3 className="mt-3 font-display text-[2.65rem] leading-none text-luaz-paper md:text-[4.4rem]">
                 {activeProduct.shortLabel}
               </h3>
               <p className="mt-5 max-w-[420px] text-[14px] leading-6 text-luaz-mist/68">
@@ -89,14 +89,14 @@ export function RitualSystemSection() {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-6">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-6 md:gap-4">
             {steps.map((step, index) => (
               <button
                 key={step}
                 type="button"
                 onMouseEnter={() => setActiveStep(Math.min(index, products.length - 1))}
                 onFocus={() => setActiveStep(Math.min(index, products.length - 1))}
-                className="group/tile relative min-h-[132px] border border-luaz-paper/10 p-4 text-left outline-none transition-colors duration-500 hover:border-luaz-paper/24 focus-visible:border-luaz-herb"
+                className="group/tile relative min-h-[112px] border border-luaz-paper/10 p-3 text-left outline-none transition-colors duration-500 hover:border-luaz-paper/24 focus-visible:border-luaz-herb md:min-h-[132px] md:p-4"
               >
                 <motion.span
                   className="absolute inset-x-0 top-0 h-px"
@@ -110,11 +110,11 @@ export function RitualSystemSection() {
                 <span className="text-[11px] uppercase text-luaz-mist/42">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="absolute bottom-4 left-4 right-4 font-display text-[2.4rem] leading-none text-luaz-paper transition-transform duration-500 group-hover/tile:-translate-y-1">
+                <p className="absolute bottom-3 left-3 right-3 font-display text-[1.75rem] leading-none text-luaz-paper transition-transform duration-500 group-hover/tile:-translate-y-1 md:bottom-4 md:left-4 md:right-4 md:text-[2.4rem]">
                   {step}
                 </p>
                 {index < steps.length - 1 ? (
-                  <span className="absolute right-4 top-4 h-px w-8 bg-luaz-herb/60 md:-right-6 md:top-1/2 md:w-7" />
+                  <span className="absolute right-3 top-3 h-px w-6 bg-luaz-herb/60 md:-right-6 md:top-1/2 md:w-7" />
                 ) : null}
               </button>
             ))}

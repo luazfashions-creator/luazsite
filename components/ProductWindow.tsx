@@ -92,7 +92,7 @@ export function ProductWindow({ product, index, onOpen }: ProductWindowProps) {
         className="pointer-events-none absolute inset-0 z-20 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-100"
         style={{ background: glow }}
       />
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[5/4] overflow-hidden sm:aspect-[4/5]">
         <motion.img
           src={product.image}
           alt={`${product.name} ritual visual`}
@@ -113,7 +113,7 @@ export function ProductWindow({ product, index, onOpen }: ProductWindowProps) {
           />
         ) : null}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,247,242,0.02),rgba(23,43,40,0.26))]" />
-        <div className="absolute left-5 top-5 rounded-[8px] border border-luaz-paper/12 bg-luaz-graphite/72 px-3 py-2 text-[10px] uppercase text-luaz-paper/66 opacity-0 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute left-4 top-4 rounded-[8px] border border-luaz-paper/12 bg-luaz-graphite/72 px-3 py-2 text-[10px] uppercase text-luaz-paper/66 opacity-100 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 md:left-5 md:top-5 md:opacity-0 md:group-hover:opacity-100">
           Open chapter
         </div>
         <div
@@ -121,18 +121,18 @@ export function ProductWindow({ product, index, onOpen }: ProductWindowProps) {
           style={{ backgroundColor: product.tone }}
         />
       </div>
-      <div className="min-h-[170px] px-5 py-5 md:px-6 md:py-6">
+      <div className="min-h-[150px] px-4 py-5 md:min-h-[170px] md:px-6 md:py-6">
         <div className="flex items-start justify-between gap-4 text-[11px] uppercase text-luaz-mist/52">
           <span>{String(index + 1).padStart(2, "0")}</span>
           <span style={{ color: product.tone }}>{product.shortLabel}</span>
         </div>
-        <h3 className="mt-8 font-display text-[2.55rem] leading-[0.95] text-luaz-paper md:text-[3.1rem]">
+        <h3 className="mt-6 font-display text-[2.2rem] leading-[0.98] text-luaz-paper md:mt-8 md:text-[3.1rem] md:leading-[0.95]">
           {product.name}
         </h3>
-        <p className="mt-5 max-w-[22rem] text-[14px] leading-6 text-luaz-mist/62">
+        <p className="mt-4 max-w-[22rem] text-[14px] leading-6 text-luaz-mist/70 md:mt-5 md:text-luaz-mist/62">
           {product.conceptBody}
         </p>
-        <div className="mt-7 flex items-center gap-3 text-[11px] uppercase text-luaz-paper/56">
+        <div className="mt-6 flex items-center gap-3 text-[11px] uppercase text-luaz-paper/60 md:mt-7 md:text-luaz-paper/56">
           <span className="h-px w-8 transition-all duration-500 group-hover:w-12" style={{ backgroundColor: product.tone }} />
           <span>Explore ritual</span>
         </div>

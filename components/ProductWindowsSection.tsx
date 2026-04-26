@@ -10,11 +10,11 @@ type ProductWindowsSectionProps = {
 
 export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionProps) {
   return (
-    <section id="objects" className="relative bg-luaz-void px-5 py-28 md:px-8 md:py-40">
+    <section id="objects" className="relative bg-luaz-void px-4 py-20 sm:px-5 md:px-8 md:py-40">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#eaf0ec,#f6f7f2_38%,#d8e4df)]" />
       <div className="relative mx-auto max-w-[1540px]">
         <motion.div
-          className="mb-20 grid gap-10 md:grid-cols-[0.8fr_1.2fr] md:items-end"
+          className="mb-12 grid gap-6 md:mb-20 md:grid-cols-[0.8fr_1.2fr] md:items-end md:gap-10"
           initial={{ opacity: 0, y: 36 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-18%" }}
@@ -22,11 +22,11 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
         >
           <div>
             <p className="text-[12px] uppercase text-luaz-herb">Five windows</p>
-            <h2 className="mt-5 max-w-[720px] font-display text-[4.5rem] leading-[0.9] text-luaz-paper md:text-[7.4rem]">
+            <h2 className="mt-4 max-w-[720px] font-display text-[3.35rem] leading-[0.92] text-luaz-paper sm:text-[4rem] md:mt-5 md:text-[7.4rem]">
               The ritual lives in the objects.
             </h2>
           </div>
-          <p className="max-w-[520px] text-[16px] leading-8 text-luaz-mist/62 md:justify-self-end">
+          <p className="max-w-[520px] text-[15px] leading-7 text-luaz-mist/70 md:justify-self-end md:text-[16px] md:leading-8 md:text-luaz-mist/62">
             Not separate products. A controlled sequence for the final hour,
             held in materials that make calm visible before it becomes sleep.
           </p>

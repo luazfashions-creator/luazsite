@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Ritual", href: "#ritual" },
@@ -8,7 +9,23 @@ const navItems = [
   { label: "Origin", href: "#origin" }
 ];
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(media.matches);
+
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  return isMobile;
+}
+
 export function Navbar() {
+  const isMobile = useIsMobile();
   const { scrollY } = useScroll();
   const backgroundColor = useTransform(
     scrollY,
@@ -45,9 +62,9 @@ export function Navbar() {
         backdropFilter: "blur(18px) saturate(118%)",
         WebkitBackdropFilter: "blur(18px) saturate(118%)"
       }}
-      className="fixed left-0 top-0 z-50 w-full border-b px-5 py-4 md:px-8"
+      className="fixed left-0 top-0 z-50 w-full border-b px-4 py-3 md:px-8 md:py-4"
     >
-      <nav className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto_1fr] items-center text-[11px] uppercase md:text-[12px]">
+      <nav className="mx-auto grid max-w-[1720px] grid-cols-[auto_1fr] items-center text-[11px] uppercase md:grid-cols-[1fr_auto_1fr] md:text-[12px]">
         <a
           href="#objects"
           className="group relative hidden items-center gap-3 justify-self-start py-2 md:inline-flex"
@@ -58,7 +75,7 @@ export function Navbar() {
 
         <motion.a
           href="#top"
-          style={{ opacity: brandOpacity }}
+          style={{ opacity: isMobile ? 1 : brandOpacity }}
           className="group relative justify-self-start py-2 font-semibold md:justify-self-center"
           aria-label="LUAZ home"
         >
@@ -66,7 +83,7 @@ export function Navbar() {
           <span className="absolute -bottom-0 left-1/2 h-px w-8 -translate-x-1/2 scale-x-0 bg-current opacity-60 transition-transform duration-700 group-hover:scale-x-100" />
         </motion.a>
 
-        <div className="flex items-center justify-end gap-5 justify-self-end md:gap-8">
+        <div className="flex items-center justify-end gap-4 justify-self-end md:gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -79,7 +96,7 @@ export function Navbar() {
           ))}
           <a
             href="#invitation"
-            className="group relative inline-flex py-2 opacity-90 transition-opacity duration-500 hover:opacity-100"
+            className="group relative inline-flex max-w-[9.5rem] py-2 text-right opacity-90 transition-opacity duration-500 hover:opacity-100"
           >
             <span>Enter quiet</span>
             <span className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-100 bg-current opacity-60 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-[1.18]" />
