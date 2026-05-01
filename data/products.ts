@@ -17,17 +17,17 @@ export type LuazProduct = {
 export const products: LuazProduct[] = [
   {
     id: "chamomile-tea",
-    name: "Chamomile Tea",
-    shortLabel: "slow down",
-    conceptTitle: "Warmth lowers the volume.",
+    name: "Calming Tea",
+    shortLabel: "signal",
+    conceptTitle: "Slow down begins here.",
     conceptBody:
-      "The first cue is held in the hands, tasted slowly, and allowed to mark the end of output.",
-    ritualRole: "A warm beginning for the nervous system.",
+      "Chamomile and linden blossom give the body its first instruction: descend.",
+    ritualRole: "THE SIGNAL. A warm beginning for the nervous system.",
     description:
-      "The ritual opens internally: a quiet cup that creates a deliberate threshold between the day and the evening.",
+      "Taken before the ritual, the tea creates a deliberate threshold between output and biological descent.",
     systemReason:
-      "LUAZ uses tea as the first signal because warmth, repetition, and pace make the transition into rest feel physical before it feels mental.",
-    note: "Chamomile-led botanical infusion.",
+      "Apigenin binds to GABA receptors. The body receives the first chemical signal to go DEEP.",
+    note: "Chamomile-led botanical infusion with linden blossom.",
     image: "/assets/chamomile.jpg",
     video: "/assets/chamomile.jpg",
     tone: "#cba23d",
@@ -35,74 +35,74 @@ export const products: LuazProduct[] = [
   },
   {
     id: "himalayan-bath-salt",
-    name: "Lavender Bath Salt",
-    shortLabel: "release",
-    conceptTitle: "Minerals turn release tactile.",
+    name: "Thermal Bath Salt",
+    shortLabel: "descent",
+    conceptTitle: "Your body must cool to go DEEP.",
     conceptBody:
-      "Water, salt, and lavender give the body a clear instruction: soften the pace.",
-    ritualRole: "A sensory exhale for the body.",
+      "Warm water rises, core temperature falls, and the body begins its descent.",
+    ritualRole: "THE DESCENT. Temperature becomes a biological instruction.",
     description:
-      "Mineral texture, warm water, and stillness create the second movement: physical decompression after activity.",
+      "Mineral texture and water create the second movement: physical decompression after activity.",
     systemReason:
-      "The bath salt exists to make release feel tangible, shifting the body from doing into receiving before the sleep environment is prepared.",
-    note: "Lavender mineral salt blend.",
+      "Core temperature falls during DEEP onset. The bath salt accelerates that shift from the outside in.",
+    note: "Thermal mineral salt blend.",
     image: "/assets/lavenderbathsalt.jpg",
     video: "/assets/lavenderbathsalt.jpg",
     tone: "#9a8cc2",
     ctaLabel: "Enter release"
   },
   {
-    id: "essential-oil",
-    name: "Sandalwood Essential Oil",
-    shortLabel: "signal",
-    conceptTitle: "Scent becomes memory.",
+    id: "hemp-oil-foot-ritual",
+    name: "Hemp Oil Foot Ritual",
+    shortLabel: "activation",
+    conceptTitle: "The body listens through skin.",
     conceptBody:
-      "A precise aromatic mark repeats each night until the room itself starts to remember.",
-    ritualRole: "Scent as a repeated cue for sleep.",
+      "Four drops. Circular motion. Ninety seconds. The nervous system registers the ritual.",
+    ritualRole: "THE ACTIVATION. Touch begins the final descent.",
     description:
-      "A precise aromatic mark that turns the ritual into memory, association, and a sensory instruction to slow down.",
+      "Cold-pressed hemp oil turns touch into a precise signal through the foot ritual.",
     systemReason:
-      "LUAZ treats scent as a quiet architecture: the same signal repeated each evening helps the mind recognize the sequence.",
-    note: "Sandalwood aromatic concentrate.",
+      "The sole of the foot is nerve dense. The ritual uses that surface as a biological input.",
+    note: "Cold-pressed hemp oil for foot ritual.",
     image: "/assets/sandalwood.jpg",
     video: "/assets/sandalwood.jpg",
-    tone: "#af725d",
-    ctaLabel: "Set the signal"
-  },
-  {
-    id: "diffuser",
-    name: "Diffuser",
-    shortLabel: "atmosphere",
-    conceptTitle: "The room joins the ritual.",
-    conceptBody:
-      "A slow aromatic field makes the evening feel designed, not improvised.",
-    ritualRole: "The room becomes part of the ritual.",
-    description:
-      "A slow atmospheric layer that extends the ritual outward, making the space feel softer, quieter, and sleep-ready.",
-    systemReason:
-      "The diffuser exists because rest is environmental. LUAZ prepares the room as carefully as it prepares the body.",
-    note: "Evening diffusion object.",
-    image: "/assets/diffuser.jpg",
-    video: "/assets/diffuser.jpg",
-    tone: "#6aa4ba",
-    ctaLabel: "Shape atmosphere"
+    tone: "#4A7FD4",
+    ctaLabel: "Begin activation"
   },
   {
     id: "hemp-socks",
-    name: "Hemp Socks",
-    shortLabel: "warmth",
-    conceptTitle: "Touch completes the descent.",
+    name: "Warm Hemp Socks",
+    shortLabel: "lock",
+    conceptTitle: "Heat moves where sleep needs it.",
     conceptBody:
-      "The final object is simple on purpose: grounded warmth, placed exactly at the end.",
-    ritualRole: "The final tactile step before sleep.",
+      "Warm extremities tell the brain the core cooling gate is complete.",
+    ritualRole: "THE LOCK. Warmth moves to the extremities.",
     description:
-      "Grounding warmth and a softer physical boundary, placed at the end so the body receives a final cue of completion.",
+      "Soft hemp warmth locks the final physical condition before DEEP begins.",
     systemReason:
-      "LUAZ completes the system with touch: a small material decision that turns intention into comfort.",
+      "Warm extremities signal vasodilation and support the temperature drop required for DEEP.",
     note: "Soft hemp-rich knit.",
     image: "/assets/hempsocks.webp",
     video: "/assets/hempsocks.webp",
-    tone: "#7f9a8a",
-    ctaLabel: "Complete the ritual"
+    tone: "#C9A96E",
+    ctaLabel: "Lock the ritual"
+  },
+  {
+    id: "ritual-sequence-card",
+    name: "Ritual Sequence Card",
+    shortLabel: "system",
+    conceptTitle: "One sequence. Every night.",
+    conceptBody:
+      "The card connects every cue into one timed protocol the body can learn.",
+    ritualRole: "THE SYSTEM. Not a suggestion. A protocol.",
+    description:
+      "A matte ritual card sets the exact sequence, timing, and order. The body learns the pattern.",
+    systemReason:
+      "Repetition turns the box from objects into a trigger. DEEP begins when the ritual begins.",
+    note: "Matte-black sequence card.",
+    image: "/assets/back_box_sample_1.png",
+    video: "/assets/back_box_sample_1.png",
+    tone: "#C8D4E8",
+    ctaLabel: "Follow the system"
   }
 ];

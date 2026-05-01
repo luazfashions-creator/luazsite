@@ -1,6 +1,6 @@
 "use client";
 
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactNode, useEffect } from "react";
@@ -9,44 +9,61 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
     const lenis = new Lenis({
-      duration: 1.8,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.07,
+      anchors: {
+        offset: -88,
+        lerp: 0.18
+      },
+      lerp: 0.12,
+      overscroll: false,
       smoothWheel: true,
-      touchMultiplier: 2
+      stopInertiaOnNavigate: true,
+      syncTouch: false,
+      touchMultiplier: 1,
+      wheelMultiplier: 0.78,
+      prevent: (node) => node.closest("[data-lenis-prevent]") !== null
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
+    const updateScrollTriggers = () => ScrollTrigger.update();
+    lenis.on("scroll", updateScrollTriggers);
 
     const update = (time: number) => {
       lenis.raf(time * 1000);
     };
 
-    gsap.ticker.add(update);
-    gsap.ticker.lagSmoothing(0);
-    ScrollTrigger.refresh();
-
-    const syncHashTarget = () => {
-      const { hash } = window.location;
-      if (!hash) return;
-
-      const target = document.querySelector(hash);
-      if (!target) return;
-
-      lenis.scrollTo(target as HTMLElement, { immediate: true });
-      ScrollTrigger.refresh();
+    let refreshFrame = 0;
+    const refresh = () => {
+      cancelAnimationFrame(refreshFrame);
+      refreshFrame = requestAnimationFrame(() => {
+        lenis.resize();
+        ScrollTrigger.refresh();
+      });
     };
 
-    const rafId = window.requestAnimationFrame(syncHashTarget);
-    window.addEventListener("hashchange", syncHashTarget);
+    const resizeObserver = new ResizeObserver(refresh);
+    resizeObserver.observe(document.documentElement);
+    resizeObserver.observe(document.body);
+    window.addEventListener("load", refresh);
+
+    gsap.ticker.add(update);
+    gsap.ticker.lagSmoothing(0);
+    refresh();
 
     return () => {
-      window.cancelAnimationFrame(rafId);
-      window.removeEventListener("hashchange", syncHashTarget);
+      window.removeEventListener("load", refresh);
+      resizeObserver.disconnect();
+      cancelAnimationFrame(refreshFrame);
+      lenis.off("scroll", updateScrollTriggers);
       gsap.ticker.remove(update);
       lenis.destroy();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 

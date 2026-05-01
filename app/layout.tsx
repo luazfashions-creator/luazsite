@@ -1,22 +1,14 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond } from "next/font/google";
-import Script from "next/script";
+import { Inter } from "next/font/google";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
-  variable: "--cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap"
 });
-
-export const metadata: Metadata = {
-  title: "LUAZ — Instantly Calms You Down",
-  description:
-    "A cinematic luxury wellness ritual told through image, typography, and scroll."
-};
 
 const stripExtensionHydrationNoise = `
 (() => {
@@ -57,6 +49,12 @@ const stripExtensionHydrationNoise = `
 })();
 `;
 
+export const metadata: Metadata = {
+  title: "LUAZ — Calmness before sleep.",
+  description:
+    "A structured evening ritual designed to help your body slow down.",
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -66,11 +64,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${cormorant.variable} font-body antialiased`}
+        className={`${inter.variable} font-sans antialiased bg-[#050505] text-white overflow-x-hidden`}
       >
-        <Script
-          id="strip-extension-hydration-noise"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{ __html: stripExtensionHydrationNoise }}
         />
         <SmoothScroll>{children}</SmoothScroll>

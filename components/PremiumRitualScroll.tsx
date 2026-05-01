@@ -25,11 +25,11 @@ type FloatingPosition = {
 };
 
 const desktopPositions: FloatingPosition[] = [
-  { x: -328, y: -202, rotate: -9, scale: 1.02 },
-  { x: -372, y: 78, rotate: 7, scale: 0.98 },
-  { x: -34, y: -274, rotate: -2, scale: 1.04 },
-  { x: 300, y: -166, rotate: 8, scale: 1 },
-  { x: 338, y: 116, rotate: -7, scale: 1.02 }
+  { x: -392, y: -220, rotate: -7, scale: 1.02 },
+  { x: -398, y: 86, rotate: 5, scale: 0.96 },
+  { x: -38, y: -312, rotate: -2, scale: 1.04 },
+  { x: 342, y: -202, rotate: 6, scale: 1 },
+  { x: 354, y: 116, rotate: -5, scale: 0.98 }
 ];
 
 const tabletPositions: FloatingPosition[] = [
@@ -41,11 +41,19 @@ const tabletPositions: FloatingPosition[] = [
 ];
 
 const mobilePositions: FloatingPosition[] = [
-  { x: -72, y: -204, rotate: -6, scale: 0.58 },
-  { x: -82, y: -30, rotate: 5, scale: 0.54 },
-  { x: 78, y: -190, rotate: 4, scale: 0.56 },
-  { x: 82, y: -20, rotate: -5, scale: 0.54 },
-  { x: 0, y: 138, rotate: 2, scale: 0.56 }
+  { x: -82, y: -204, rotate: -5, scale: 0.54 },
+  { x: -88, y: -34, rotate: 4, scale: 0.5 },
+  { x: 82, y: -188, rotate: 3, scale: 0.52 },
+  { x: 88, y: -20, rotate: -4, scale: 0.5 },
+  { x: 0, y: 134, rotate: 2, scale: 0.52 }
+];
+
+const roomWindowLayouts = [
+  "left-4 top-[18%] w-[26%] max-w-[430px]",
+  "left-8 bottom-[12%] w-[24%] max-w-[390px]",
+  "left-1/2 bottom-[7%] w-[25%] max-w-[430px] -translate-x-1/2",
+  "right-4 top-[20%] w-[27%] max-w-[440px]",
+  "right-8 bottom-[10%] w-[25%] max-w-[420px]"
 ];
 
 const itemContainerVariants = {
@@ -195,7 +203,7 @@ function FloatingItem({
           ease: "easeInOut",
           repeat: isOpen && !reduceMotion ? Infinity : 0
         }}
-        className="w-[126px] -translate-x-1/2 -translate-y-1/2 sm:w-[148px] md:w-[192px]"
+        className="w-[154px] -translate-x-1/2 -translate-y-1/2 sm:w-[174px] md:w-[236px]"
       >
         <motion.div
           onHoverStart={() => setIsHovered(true)}
@@ -206,15 +214,16 @@ function FloatingItem({
             scale: 1.1,
             transition: { stiffness: 120, damping: 18, mass: 0.65, type: "spring" }
           }}
-          className="group overflow-hidden rounded-[8px] border border-luaz-paper/10 bg-[#f7f6ef] shadow-[0_22px_70px_rgba(23,43,40,0.18)] md:shadow-[0_34px_110px_rgba(23,43,40,0.2)]"
+          className="group overflow-hidden rounded-[8px] border border-[#f6f7f2]/16 bg-[#111514]/68 shadow-[0_28px_90px_rgba(0,0,0,0.36)] backdrop-blur-xl md:shadow-[0_44px_140px_rgba(0,0,0,0.42)]"
         >
-          <div className="relative aspect-[4/5] overflow-hidden">
+          <div className="relative aspect-[1.55/1] overflow-hidden">
             <img
               src={product.image}
               alt={`${product.name} ritual cue`}
-              className="absolute inset-0 h-full w-full object-cover opacity-[0.88] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
+              className="absolute inset-0 h-full w-full object-cover opacity-[0.9] saturate-[0.9] transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06] group-hover:saturate-100"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,246,239,0.02),rgba(23,43,40,0.28))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,246,239,0.02),rgba(17,21,20,0.62))]" />
+            <div className="absolute inset-[8px] rounded-[6px] border border-[#f6f7f2]/16" />
             <motion.div
               animate={{
                 clipPath: isHovered
@@ -223,18 +232,26 @@ function FloatingItem({
                 opacity: isHovered ? 1 : 0
               }}
               transition={{ duration: 0.78, ease: luxuryEase }}
-              className="absolute inset-0 grid place-items-center bg-[#181b19]/94"
+              className="absolute inset-0 grid place-items-center bg-[#181b19]/88"
             >
               <div className="absolute inset-[12%] rounded-[8px] border border-[#f6f7f2]/10 bg-[#f6f7f2]/5" />
               <div className="relative grid h-16 w-16 place-items-center rounded-full border border-[#f6f7f2]/28 bg-[#f6f7f2]/10 backdrop-blur-md">
                 <span className="ml-1 h-0 w-0 border-y-[9px] border-l-[14px] border-y-transparent border-l-[#f6f7f2]" />
               </div>
               <p className="absolute bottom-5 left-5 right-5 text-center text-[10px] uppercase text-[#f6f7f2]/62">
-                video placeholder
+                open window
               </p>
             </motion.div>
+            <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3 text-[#f6f7f2]">
+              <p className="font-display text-[1.5rem] leading-none md:text-[1.9rem]">
+                {product.shortLabel}
+              </p>
+              <span className="text-[10px] uppercase text-[#f6f7f2]/54">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </div>
           </div>
-          <div className="px-3 py-3 md:px-4 md:py-4">
+          <div className="hidden px-3 py-3 md:px-4 md:py-4">
             <div className="flex items-center justify-between gap-4 text-[10px] uppercase text-luaz-mist/62">
               <span>{String(index + 1).padStart(2, "0")}</span>
               <span style={{ color: product.tone }}>{product.shortLabel}</span>
@@ -253,7 +270,7 @@ export function PremiumRitualScroll() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isDesktop = useMediaQuery("(min-width: 1180px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1179px)");
-  const { height, width } = useViewportSize();
+  const { height } = useViewportSize();
   const shouldReduceMotion = useReducedMotion();
   const reduceMotion = Boolean(shouldReduceMotion);
   const [itemsOpen, setItemsOpen] = useState(false);
@@ -278,7 +295,7 @@ export function PremiumRitualScroll() {
   }, [isDesktop, isTablet]);
 
   useMotionValueEvent(progress, "change", (latest) => {
-    setItemsOpen(latest > 0.735);
+    setItemsOpen(latest > 0.66);
   });
 
   const backgroundScale = useTransform(progress, [0, 0.5, 1], [1.09, 1.02, 1.12]);
@@ -295,9 +312,9 @@ export function PremiumRitualScroll() {
   const luazBreathScale = useTransform(progress, [0.055, 0.18, 0.28], [0.92, 1.045, 1]);
   const luazLetterY = useTransform(progress, [0.055, 0.18], [44, 0]);
 
-  const targetX = isDesktop ? -width * 0.32 : isTablet ? -width * 0.24 : 0;
-  const targetY = isDesktop ? -height * 0.006 : isTablet ? -height * 0.02 : -height * 0.22;
-  const targetScale = isDesktop ? 0.53 : isTablet ? 0.62 : 0.5;
+  const targetX = 0;
+  const targetY = isDesktop ? -height * 0.32 : isTablet ? -height * 0.28 : -height * 0.22;
+  const targetScale = isDesktop ? 0.42 : isTablet ? 0.5 : 0.5;
 
   const brandX = useTransform(layoutProgress, [0.34, 0.56], [0, targetX]);
   const brandY = useTransform(layoutProgress, [0.34, 0.56], [0, targetY]);
@@ -307,19 +324,25 @@ export function PremiumRitualScroll() {
 
   const boxOpacity = useTransform(progress, [0.48, 0.61], [0, 1]);
   const boxY = useTransform(progress, [0.48, 0.63], [122, 0]);
-  const boxScale = useTransform(progress, [0.48, 0.63, 0.78], [0.82, 1, 1.045]);
-  const boxRotateX = useTransform(progress, [0.48, 0.63], [10, 0]);
-  const boxRotateY = useTransform(progress, [0.48, 0.63, 0.78], [-8, 0, 3]);
+  const boxScale = useTransform(progress, [0.48, 0.63, 0.78], [0.78, 1, 1.075]);
+  const boxRotateX = useTransform(progress, [0.48, 0.63, 0.86], [18, 0, -3]);
+  const boxRotateY = useTransform(progress, [0.48, 0.63, 0.78], [-14, 0, 4]);
   const boxFilter = useTransform(progress, [0.48, 0.63], ["blur(18px)", "blur(0px)"]);
-  const boxBodyScaleX = useTransform(progress, [0.66, 0.77], [1, 1.09]);
-  const boxBodyScaleY = useTransform(progress, [0.66, 0.77], [1, 1.06]);
+  const boxBodyScaleX = useTransform(progress, [0.64, 0.79], [1, 1.14]);
+  const boxBodyScaleY = useTransform(progress, [0.64, 0.79], [1, 1.08]);
   const lidOpacity = useTransform(progress, [0.66, 0.78], [1, 0.1]);
-  const lidY = useTransform(progress, [0.66, 0.78], [0, -64]);
-  const lidRotateX = useTransform(progress, [0.66, 0.78], [0, -70]);
-  const glowOpacity = useTransform(progress, [0.67, 0.82], [0, 1]);
+  const lidY = useTransform(progress, [0.62, 0.82], [0, -132]);
+  const lidRotateX = useTransform(progress, [0.62, 0.82], [0, -108]);
+  const lidScale = useTransform(progress, [0.62, 0.82], [1, 0.96]);
+  const glowOpacity = useTransform(progress, [0.62, 0.82], [0, 1]);
+  const roomGlowScale = useTransform(progress, [0.62, 0.86], [0.72, 1.18]);
+  const floorOpacity = useTransform(progress, [0.48, 0.68, 0.9], [0, 0.68, 0.9]);
+  const galleryOpacity = useTransform(progress, [0.58, 0.7, 0.94], [0, 1, 0.92]);
+  const galleryY = useTransform(progress, [0.58, 0.72], [46, 0]);
+  const galleryScale = useTransform(progress, [0.58, 0.76], [0.96, 1]);
   const lineScale = useTransform(progress, [0.56, 0.84], [0, 1]);
   const scrollCueOpacity = useTransform(progress, [0, 0.075], [1, 0]);
-  const phrase = "Instantly calms you down".split(" ");
+  const phrase = "Before Sleep Begins".split(" ");
 
   return (
     <section ref={sectionRef} id="top" className="relative h-[560vh] bg-luaz-void md:h-[680vh]">
@@ -340,6 +363,61 @@ export function PremiumRitualScroll() {
         />
         <div className="luaz-noise absolute inset-0 opacity-[0.18]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(246,247,242,0.045),transparent_44%)]" />
+        <div className="pointer-events-none absolute inset-x-5 top-24 z-20 hidden items-center justify-between text-[10px] uppercase text-[#f6f7f2]/58 md:flex">
+          <span>A ritual for depth</span>
+          <span>One box / five cues / DEEP</span>
+        </div>
+        <div className="pointer-events-none absolute bottom-24 left-5 top-24 z-20 hidden w-px bg-gradient-to-b from-transparent via-[#f6f7f2]/18 to-transparent md:block" />
+        <div className="pointer-events-none absolute bottom-24 right-5 top-24 z-20 hidden w-px bg-gradient-to-b from-transparent via-[#f6f7f2]/18 to-transparent md:block" />
+
+        <motion.div
+          style={{ opacity: galleryOpacity, scale: galleryScale, y: galleryY }}
+          className="pointer-events-none absolute inset-0 z-20 hidden md:block"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(246,247,242,0.05),transparent_34%),linear-gradient(180deg,rgba(12,16,15,0.08),rgba(12,16,15,0.72))]" />
+          <div className="absolute left-[16%] top-0 h-[130%] w-px rotate-45 bg-[#c9a16c]/20" />
+          <div className="absolute right-[18%] top-[-10%] h-[130%] w-px -rotate-45 bg-[#f6f7f2]/10" />
+          <div className="absolute left-1/2 top-[8%] -translate-x-1/2 text-center">
+            <p className="text-[11px] uppercase text-[#f6f7f2]/42">
+              A ritual for depth
+            </p>
+            <p className="mt-2 font-display text-[3.4rem] leading-[0.9] text-[#f6f7f2]/88">
+              You do not
+              <br />
+              fall asleep
+            </p>
+          </div>
+          {products.map((product, index) => (
+            <div
+              key={product.id}
+              className={`absolute overflow-hidden rounded-[8px] border border-[#f6f7f2]/16 bg-[#111514]/70 shadow-[0_36px_110px_rgba(0,0,0,0.48)] ${roomWindowLayouts[index]}`}
+            >
+              <div className="relative aspect-[1.62/1] overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={`${product.name} ritual room window`}
+                  className="absolute inset-0 h-full w-full object-cover opacity-[0.9] saturate-[0.88]"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,21,20,0.02),rgba(17,21,20,0.58))]" />
+                <div className="absolute inset-[9px] rounded-[6px] border border-[#f6f7f2]/12" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4 text-[#f6f7f2]">
+                  <div>
+                    <p className="text-[10px] uppercase text-[#f6f7f2]/48">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-1 font-display text-[1.9rem] leading-none">
+                      {product.shortLabel}
+                    </p>
+                  </div>
+                  <span
+                    className="h-2 w-2 rounded-full"
+                    style={{ backgroundColor: product.tone }}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
 
         <div className="absolute left-1/2 top-[44%] z-20 w-[calc(100%_-_32px)] max-w-[1500px] -translate-x-1/2 -translate-y-1/2 text-[#f6f7f2] md:top-1/2 md:w-[calc(100%_-_64px)]">
           <motion.div
@@ -354,9 +432,9 @@ export function PremiumRitualScroll() {
                 scale: luazBreathScale,
                 y: luazLetterY
               }}
-              className="font-display text-[5.7rem] leading-[0.78] sm:text-[6.5rem] md:text-[13rem] lg:text-[16rem] xl:text-[19rem]"
+              className="font-display text-[6rem] leading-[0.78] tracking-[-0.04em] sm:text-[7rem] md:text-[13rem] lg:text-[16rem] xl:text-[19rem]"
             >
-              LUAZ
+              DEEP
             </motion.h1>
             <motion.p
               style={{ opacity: copyOpacity, y: copyY }}
@@ -371,10 +449,16 @@ export function PremiumRitualScroll() {
                 />
               ))}
             </motion.p>
+            <motion.div
+              style={{ opacity: copyOpacity, y: copyY }}
+              className="mt-6 hidden max-w-[520px] text-center text-[13px] uppercase leading-6 text-[#f6f7f2]/62 md:block"
+            >
+              Not sleep. A ritual that prepares your body for the moment sleep begins.
+            </motion.div>
           </motion.div>
         </div>
 
-        <div className="absolute left-1/2 top-[64%] z-30 w-[232px] -translate-x-1/2 -translate-y-1/2 sm:w-[276px] md:left-[68%] md:top-1/2 md:w-[410px]">
+        <div className="absolute left-1/2 top-[64%] z-30 w-[232px] -translate-x-1/2 -translate-y-1/2 sm:w-[276px] md:top-[58%] md:w-[430px] lg:w-[480px]">
           <motion.div
             style={{
               filter: boxFilter,
@@ -386,33 +470,61 @@ export function PremiumRitualScroll() {
             }}
             className="relative h-[348px] transform-gpu sm:h-[410px] md:h-[520px]"
           >
-            <div className="absolute inset-0" style={{ perspective: 1800 }}>
+            <div className="absolute inset-0" style={{ perspective: 2200 }}>
+              <motion.div
+                style={{ opacity: floorOpacity, scale: roomGlowScale }}
+                className="absolute left-1/2 top-[72%] h-[44%] w-[140%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse,rgba(246,247,242,0.26),rgba(120,157,132,0.16)_32%,rgba(0,0,0,0)_70%)] blur-xl"
+              />
+              <motion.div
+                style={{ opacity: floorOpacity }}
+                className="absolute left-1/2 top-[80%] h-px w-[132%] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(246,247,242,0.32),transparent)]"
+              />
               <motion.div
                 style={{ scaleX: boxBodyScaleX, scaleY: boxBodyScaleY }}
-                className="absolute inset-x-0 bottom-0 h-[72%] overflow-hidden rounded-[8px] border border-[#f6f7f2]/22 bg-[#f6f7f2]/12 shadow-[0_50px_150px_rgba(0,0,0,0.38)] backdrop-blur-[12px]"
+                className="absolute inset-x-0 bottom-0 h-[72%] overflow-hidden rounded-[8px] border border-[#f6f7f2]/22 bg-[#f6f7f2]/12 shadow-[0_70px_180px_rgba(0,0,0,0.5)] backdrop-blur-[12px] [transform-style:preserve-3d]"
               >
                 <motion.div
                   style={{ opacity: glowOpacity }}
-                  className="absolute -inset-[18%] bg-[radial-gradient(circle,rgba(246,247,242,0.68),rgba(120,157,132,0.26)_36%,transparent_68%)] blur-2xl"
+                  className="absolute -inset-[18%] bg-[radial-gradient(circle,rgba(246,247,242,0.76),rgba(120,157,132,0.34)_36%,transparent_70%)] blur-2xl"
                 />
                 <img
                   src="/assets/back_box_sample_1.png"
                   alt="LUAZ ritual box interior"
-                  className="absolute inset-0 h-full w-full rounded-[8px] object-cover opacity-[0.34] saturate-[0.82]"
+                  className="absolute inset-0 h-full w-full rounded-[8px] object-cover opacity-[0.42] saturate-[0.86]"
                 />
-                <div className="absolute inset-0 rounded-[8px] bg-[linear-gradient(135deg,rgba(246,247,242,0.2),rgba(246,247,242,0.04)_36%,rgba(23,43,40,0.28))]" />
+                <div className="absolute inset-0 rounded-[8px] bg-[linear-gradient(135deg,rgba(246,247,242,0.24),rgba(246,247,242,0.04)_36%,rgba(23,43,40,0.34))]" />
                 <div className="absolute inset-[10px] rounded-[8px] border border-[#f6f7f2]/14" />
                 <div className="absolute left-[12%] right-[12%] top-[18%] h-px bg-[#f6f7f2]/28" />
+                <div className="absolute inset-x-[8%] bottom-[16%] h-[16%] rounded-[8px] border border-[#f6f7f2]/10 bg-[#111514]/18 backdrop-blur-sm" />
+                <div className="absolute left-[12%] right-[12%] top-[36%] grid grid-cols-5 gap-2 opacity-80">
+                  {products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#f6f7f2]/12 bg-[#f6f7f2]/10"
+                    >
+                      <img
+                        src={product.image}
+                        alt=""
+                        className="h-full w-full object-cover opacity-70 saturate-[0.82]"
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase text-[#f6f7f2]/58">
+                  <span>DEEP</span>
+                  <span>complete system</span>
+                </div>
               </motion.div>
 
               <motion.div
                 style={{
                   opacity: lidOpacity,
                   rotateX: lidRotateX,
+                  scale: lidScale,
                   transformOrigin: "50% 100%",
                   y: lidY
                 }}
-                className="absolute inset-x-0 top-0 h-[64%] overflow-hidden rounded-[8px] border border-[#f6f7f2]/20 bg-[#f6f7f2]/10 shadow-[0_38px_120px_rgba(0,0,0,0.28)] backdrop-blur-[12px]"
+                className="absolute inset-x-0 top-0 h-[64%] overflow-hidden rounded-[8px] border border-[#f6f7f2]/20 bg-[#f6f7f2]/10 shadow-[0_58px_150px_rgba(0,0,0,0.42)] backdrop-blur-[12px] [transform-style:preserve-3d]"
               >
                 <img
                   src="/assets/box_sample_front.jpeg"
@@ -436,7 +548,7 @@ export function PremiumRitualScroll() {
                 variants={itemContainerVariants}
                 initial="closed"
                 animate={itemsOpen ? "open" : "closed"}
-                className="absolute left-1/2 top-[55%] h-1 w-1 -translate-x-1/2 -translate-y-1/2"
+                className="absolute left-1/2 top-[53%] h-1 w-1 -translate-x-1/2 -translate-y-1/2"
               >
                 {products.map((product, index) => (
                   <FloatingItem
@@ -459,7 +571,7 @@ export function PremiumRitualScroll() {
         />
         <motion.div
           style={{ opacity: scrollCueOpacity }}
-          className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 text-[11px] uppercase text-[#f6f7f2]/62"
+          className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 rounded-full border border-[#f6f7f2]/16 bg-[#f6f7f2]/8 px-4 py-2 text-[11px] uppercase text-[#f6f7f2]/70 backdrop-blur-md"
         >
           Scroll
         </motion.div>

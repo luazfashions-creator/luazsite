@@ -8,7 +8,7 @@ import {
   useTransform
 } from "framer-motion";
 import { MouseEvent, useRef } from "react";
-import { LuazProduct } from "@/data/products";
+import { LuazProduct, products } from "@/data/products";
 import { isVideoSource, pauseHoverVideo, playHoverVideo } from "@/lib/media";
 
 type ProductWindowProps = {
@@ -92,11 +92,12 @@ export function ProductWindow({ product, index, onOpen }: ProductWindowProps) {
         className="pointer-events-none absolute inset-0 z-20 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-100"
         style={{ background: glow }}
       />
+      <div className="pointer-events-none absolute inset-[8px] z-30 rounded-[6px] border border-white/45 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
       <div className="relative aspect-[5/4] overflow-hidden sm:aspect-[4/5]">
         <motion.img
           src={product.image}
           alt={`${product.name} ritual visual`}
-          className="absolute inset-0 h-full w-full object-cover opacity-[0.82]"
+          className="absolute inset-0 h-full w-full object-cover opacity-[0.86] saturate-[0.92]"
           style={{ x: imageX, y: imageY }}
           whileHover={{ scale: 1.07 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -112,9 +113,13 @@ export function ProductWindow({ product, index, onOpen }: ProductWindowProps) {
             className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-500 group-hover:opacity-100"
           />
         ) : null}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,247,242,0.02),rgba(23,43,40,0.26))]" />
-        <div className="absolute left-4 top-4 rounded-[8px] border border-luaz-paper/12 bg-luaz-graphite/72 px-3 py-2 text-[10px] uppercase text-luaz-paper/66 opacity-100 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 md:left-5 md:top-5 md:opacity-0 md:group-hover:opacity-100">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(246,247,242,0.04),rgba(23,43,40,0.06)_45%,rgba(23,43,40,0.48))]" />
+        <div className="absolute left-4 top-4 rounded-full border border-luaz-paper/12 bg-luaz-graphite/76 px-3 py-2 text-[10px] uppercase text-luaz-paper/66 opacity-100 backdrop-blur-md transition-all duration-500 group-hover:translate-y-0 md:left-5 md:top-5 md:opacity-0 md:group-hover:opacity-100">
           Open chapter
+        </div>
+        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-[10px] uppercase text-[#f6f7f2]/76">
+          <span>{product.shortLabel}</span>
+          <span>{String(index + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}</span>
         </div>
         <div
           className="absolute inset-x-0 bottom-0 h-px opacity-0 transition-opacity duration-700 group-hover:opacity-100"
@@ -132,9 +137,14 @@ export function ProductWindow({ product, index, onOpen }: ProductWindowProps) {
         <p className="mt-4 max-w-[22rem] text-[14px] leading-6 text-luaz-mist/70 md:mt-5 md:text-luaz-mist/62">
           {product.conceptBody}
         </p>
-        <div className="mt-6 flex items-center gap-3 text-[11px] uppercase text-luaz-paper/60 md:mt-7 md:text-luaz-paper/56">
+        <div className="mt-6 flex items-center justify-between gap-3 text-[11px] uppercase text-luaz-paper/60 md:mt-7 md:text-luaz-paper/56">
+          <span className="flex items-center gap-3">
           <span className="h-px w-8 transition-all duration-500 group-hover:w-12" style={{ backgroundColor: product.tone }} />
           <span>Explore ritual</span>
+          </span>
+          <span className="grid h-8 w-8 place-items-center rounded-full border border-luaz-paper/12 transition-transform duration-500 group-hover:-translate-y-1">
+            +
+          </span>
         </div>
       </div>
     </motion.button>
