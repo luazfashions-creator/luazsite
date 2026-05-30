@@ -14,6 +14,7 @@ const eslintConfig = [
     ignores: [
       ".next/**",
       "node_modules/**",
+      "google-cloud-sdk/**",
       "out/**",
       "dist/**",
       "next-env.d.ts",

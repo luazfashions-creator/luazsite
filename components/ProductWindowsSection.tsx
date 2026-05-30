@@ -31,9 +31,9 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
   return (
     <section
       id="objects"
-      className="relative overflow-hidden bg-[#111514] px-4 py-20 text-[#f6f1e8] sm:px-5 md:min-h-screen md:px-8 md:py-8"
+      className="theme-section relative overflow-hidden px-4 py-20 sm:px-5 md:min-h-screen md:px-8 md:py-8"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(197,127,132,0.18),transparent_34%),linear-gradient(180deg,#4b3024_0%,#111514_23%,#0d1110_100%)]" />
+      <div className="theme-section-bg absolute inset-0" />
       <div className="luaz-noise absolute inset-0 opacity-[0.2]" />
       <div className="pointer-events-none absolute left-[18%] top-0 hidden h-[150%] w-px rotate-45 bg-[#c9a16c]/24 md:block" />
 
@@ -46,10 +46,10 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="flex items-start gap-6">
-            <h2 className="max-w-[13rem] font-display text-[3.25rem] leading-[0.78] text-[#f8f1e8] md:text-[3.7rem]">
+            <h2 className="max-w-[13rem] font-display text-[3.25rem] leading-[0.78] md:text-[3.7rem]">
               The DEEP System
             </h2>
-            <p className="hidden pt-2 text-[12px] uppercase text-[#f6f1e8]/40 md:block">
+            <p className="hidden pt-2 text-[12px] uppercase text-black/40 md:block">
               The ritual before sleep
             </p>
           </div>
@@ -57,7 +57,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
           <div className="grid gap-3 md:grid-cols-2">
             <button
               type="button"
-              className="rounded-[8px] border border-[#f6f1e8]/10 bg-[#f6f1e8]/14 px-8 py-4 text-[12px] uppercase text-[#f6f1e8]/84 backdrop-blur-xl transition hover:bg-[#f6f1e8]/20"
+              className="rounded-[8px] border border-black/10 bg-black/[0.04] px-8 py-4 text-[12px] uppercase text-black/80 backdrop-blur-xl transition hover:bg-black/[0.08]"
               onMouseEnter={() => setActiveIndex(0)}
               onFocus={() => setActiveIndex(0)}
             >
@@ -65,7 +65,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
             </button>
             <button
               type="button"
-              className="rounded-[8px] border border-[#f6f1e8]/10 bg-[#f6f1e8]/14 px-8 py-4 text-[12px] uppercase text-[#f6f1e8]/84 backdrop-blur-xl transition hover:bg-[#f6f1e8]/20"
+              className="rounded-[8px] border border-black/10 bg-black/[0.04] px-8 py-4 text-[12px] uppercase text-black/80 backdrop-blur-xl transition hover:bg-black/[0.08]"
               onMouseEnter={() => setActiveIndex(3)}
               onFocus={() => setActiveIndex(3)}
             >
@@ -77,7 +77,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
             <button
               type="button"
               onClick={() => onOpenProduct(activeProduct)}
-              className="rounded-[8px] border border-[#f6f1e8]/10 bg-[#f6f1e8]/14 px-8 py-4 text-[12px] uppercase text-[#f6f1e8]/84 backdrop-blur-xl transition hover:bg-[#f6f1e8]/20"
+              className="rounded-[8px] border border-black/10 bg-black/[0.04] px-8 py-4 text-[12px] uppercase text-black/80 backdrop-blur-xl transition hover:bg-black/[0.08]"
             >
               Begin DEEP
             </button>
@@ -85,7 +85,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
               type="button"
               onClick={showNext}
               aria-label="Show next ritual window"
-              className="grid h-[52px] w-[88px] place-items-center rounded-[8px] bg-[#f6f1e8] text-[#111514] transition hover:scale-[1.02]"
+              className="grid h-[52px] w-[88px] place-items-center rounded-[8px] bg-black text-white transition hover:scale-[1.02]"
             >
               <span className="text-[20px] leading-none">-&gt;</span>
             </button>
@@ -93,7 +93,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
         </motion.div>
 
         <div className="relative z-20 mt-14 md:mt-0 md:min-h-[820px]">
-          <div className="pointer-events-none absolute left-1/2 top-6 hidden -translate-x-1/2 text-center font-display text-[3.2rem] leading-[0.95] text-[#f8f1e8]/86 md:block">
+          <div className="pointer-events-none absolute left-1/2 top-6 hidden -translate-x-1/2 text-center font-display text-[3.2rem] leading-[0.95] text-black/80 md:block">
             You transition
             <br />
             into DEEP
@@ -102,7 +102,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
           <motion.button
             type="button"
             onClick={() => onOpenProduct(activeProduct)}
-            className="group relative z-20 mx-auto block w-full overflow-hidden rounded-[8px] border border-[#f6f1e8]/12 bg-[#f6f1e8]/8 text-left shadow-[0_40px_130px_rgba(0,0,0,0.46)] outline-none md:absolute md:left-1/2 md:top-[30%] md:w-[49%] md:-translate-x-1/2"
+            className="group relative z-20 mx-auto block w-full overflow-hidden rounded-[16px] border border-black/10 bg-white/40 text-left shadow-[0_20px_40px_rgba(0,0,0,0.05)] outline-none backdrop-blur-xl md:absolute md:left-1/2 md:top-[30%] md:w-[49%] md:-translate-x-1/2"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12%" }}
@@ -121,18 +121,18 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 />
               </AnimatePresence>
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(17,21,20,0.36),transparent_50%,rgba(17,21,20,0.22)),linear-gradient(180deg,transparent_42%,rgba(17,21,20,0.54))]" />
-              <div className="absolute inset-[10px] rounded-[6px] border border-[#f6f1e8]/14" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_42%,rgba(255,255,255,0.8))]" />
+              <div className="absolute inset-[10px] rounded-[12px] border border-black/5" />
               <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
                 <div>
-                  <p className="text-[11px] uppercase text-[#f6f1e8]/62">
+                  <p className="text-[11px] uppercase text-black/60 font-medium">
                     {activeProduct.shortLabel} / DEEP cue
                   </p>
-                  <h3 className="mt-2 font-display text-[3rem] leading-none text-[#f8f1e8] md:text-[4rem]">
+                  <h3 className="mt-2 font-display text-[3rem] leading-none text-black md:text-[4rem]">
                     {activeProduct.name}
                   </h3>
                 </div>
-                <p className="hidden max-w-[260px] text-[14px] leading-6 text-[#f6f1e8]/70 md:block">
+                <p className="hidden max-w-[260px] text-[14px] leading-6 text-black/70 md:block">
                   {activeProduct.conceptTitle}
                 </p>
               </div>
@@ -147,10 +147,10 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
                 onMouseEnter={() => setActiveIndex(index)}
                 onFocus={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
-                className={`group relative overflow-hidden rounded-[8px] border text-left outline-none transition duration-500 md:absolute ${
+                className={`group relative overflow-hidden rounded-[12px] border text-left outline-none transition duration-500 shadow-[0_10px_20px_rgba(0,0,0,0.03)] md:absolute ${
                   activeIndex === index
-                    ? "border-[#f6f1e8]/38 opacity-100"
-                    : "border-[#f6f1e8]/10 opacity-75 hover:opacity-100"
+                    ? "border-black/20 opacity-100"
+                    : "border-black/5 opacity-75 hover:opacity-100"
                 } ${windowPositions[index]}`}
                 initial={{ opacity: 0, y: 34 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -163,9 +163,9 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
                     alt={`${product.name} ritual selector`}
                     className="absolute inset-0 h-full w-full object-cover saturate-[0.82] transition duration-700 group-hover:scale-[1.05] group-hover:saturate-100"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,21,20,0.02),rgba(17,21,20,0.58))]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.8))]" />
                   <div
-                    className="absolute inset-x-0 bottom-0 h-px transition-opacity duration-500"
+                    className="absolute inset-x-0 bottom-0 h-1 transition-opacity duration-500"
                     style={{
                       backgroundColor: product.tone,
                       opacity: activeIndex === index ? 1 : 0.28
@@ -173,14 +173,14 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
                   />
                   <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
                     <div>
-                      <p className="text-[10px] uppercase text-[#f6f1e8]/54">
+                      <p className="text-[10px] uppercase font-medium text-black/50">
                         {String(index + 1).padStart(2, "0")}
                       </p>
-                      <p className="mt-1 font-display text-[1.65rem] leading-none text-[#f8f1e8]">
+                      <p className="mt-1 font-display text-[1.65rem] leading-none text-black">
                         {product.shortLabel}
                       </p>
                     </div>
-                    <span className="grid h-8 w-8 place-items-center rounded-full border border-[#f6f1e8]/18 bg-[#111514]/48 text-[13px] text-[#f6f1e8]/76 backdrop-blur-md">
+                    <span className="grid h-8 w-8 place-items-center rounded-full border border-black/10 bg-white/40 text-[13px] text-black/80 backdrop-blur-md">
                       {activeIndex === index ? "open" : "+"}
                     </span>
                   </div>
@@ -198,12 +198,12 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,21,20,0.06),#111514_92%)]" />
           </div>
 
-          <div className="relative z-30 mt-8 flex items-center justify-between text-[11px] uppercase text-[#f6f1e8]/46 md:absolute md:bottom-4 md:left-1/2 md:w-[49%] md:-translate-x-1/2">
-            <button type="button" onClick={showPrevious} className="transition hover:text-[#f6f1e8]">
+          <div className="relative z-30 mt-8 flex items-center justify-between text-[11px] uppercase font-medium text-black/50 md:absolute md:bottom-4 md:left-1/2 md:w-[49%] md:-translate-x-1/2">
+            <button type="button" onClick={showPrevious} className="transition hover:text-black">
               Previous
             </button>
             <span>The DEEP ritual system</span>
-            <button type="button" onClick={showNext} className="transition hover:text-[#f6f1e8]">
+            <button type="button" onClick={showNext} className="transition hover:text-black">
               Next
             </button>
           </div>

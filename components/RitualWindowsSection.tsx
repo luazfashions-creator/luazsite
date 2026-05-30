@@ -6,6 +6,7 @@ type SignalData = {
   eyebrow: string;
   title: string;
   description: string;
+  science: string;
   media: string;
   mediaSide: "left" | "right";
 };
@@ -17,6 +18,7 @@ const signals: SignalData[] = [
     title: "Chamomile Tea",
     description:
       "The ritual opens with warmth. A quiet visual cue that tells the body the day is beginning to close.",
+    science: "Apigenin, a bioflavonoid in chamomile, binds to GABA receptors in the brain to actively reduce anxiety and initiate the sleep cycle.",
     media: "/chamomilevideo.mp4",
     mediaSide: "left"
   },
@@ -26,6 +28,7 @@ const signals: SignalData[] = [
     title: "Bath Salt",
     description:
       "Minerals, heat, and stillness create a deliberate descent from activity into recovery.",
+    science: "Transdermal magnesium absorption relaxes muscles, while the rapid post-bath drop in core body temperature mimics the circadian sleep trigger.",
     media: "/bathsalt.mp4",
     mediaSide: "right"
   },
@@ -34,6 +37,7 @@ const signals: SignalData[] = [
     eyebrow: "03 / Scent",
     title: "Essential Oil",
     description: "A repeated scent that becomes part of your sleep memory.",
+    science: "Inhalation of pure lavender extract has been shown to increase slow-wave (deep) sleep and lower heart rate during the night.",
     media: "/essential_oil.mp4",
     mediaSide: "left"
   },
@@ -43,6 +47,7 @@ const signals: SignalData[] = [
     title: "Hemp Socks",
     description:
       "The final layer of warmth. Soft pressure and comfort close the ritual without noise.",
+    science: "Warming the extremities causes vasodilation, redirecting heat from the core to the skin, which signals the brain that it's time to sleep.",
     media: "/hempsocks.mp4",
     mediaSide: "right"
   }
@@ -62,9 +67,9 @@ function SignalVideo({ signal }: { signal: SignalData }) {
         <source src={signal.media} type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.14)_55%,rgba(0,0,0,0.58))]" />
-      <div className="absolute inset-[10px] rounded-[7px] border border-white/[0.12]" />
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-white/[0.62] md:bottom-5 md:left-5 md:right-5">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,0.05)_55%,rgba(0,0,0,0.2))] mix-blend-multiply" />
+      <div className="absolute inset-[10px] rounded-[7px] border border-black/10" />
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] uppercase tracking-[0.24em] font-medium text-black/80 md:bottom-5 md:left-5 md:right-5">
         <span>LUAZ</span>
         <span>{signal.eyebrow.split(" / ")[1]}</span>
       </div>
@@ -75,16 +80,25 @@ function SignalVideo({ signal }: { signal: SignalData }) {
 function SignalCopy({ signal }: { signal: SignalData }) {
   return (
     <div className="mx-auto max-w-[520px] text-center md:mx-0 md:text-left">
-      <p className="mb-4 text-[10px] uppercase tracking-[0.36em] text-white/[0.42] md:text-[11px]">
+      <p className="mb-4 text-[10px] uppercase tracking-[0.36em] font-medium text-black/40 md:text-[11px]">
         {signal.eyebrow}
       </p>
-      <h2 className="text-[2.65rem] font-light leading-[0.9] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.8rem]">
+      <h2 className="text-[2.65rem] font-light leading-[0.9] tracking-tight text-black sm:text-6xl md:text-7xl lg:text-[5.8rem]">
         {signal.title}
       </h2>
-      <p className="mx-auto mt-5 max-w-[28rem] text-sm font-light leading-6 text-white/[0.62] md:mx-0 md:mt-7 md:text-base md:leading-7">
+      <p className="mx-auto mt-5 max-w-[28rem] text-sm font-light leading-6 text-black/70 md:mx-0 md:mt-7 md:text-base md:leading-7">
         {signal.description}
       </p>
-      <div className="mx-auto mt-7 h-px w-32 bg-gradient-to-r from-transparent via-white/[0.34] to-transparent md:mx-0 md:w-44" />
+      
+      <div className="mx-auto mt-6 flex max-w-[26rem] items-start gap-3 rounded-xl border border-black/5 bg-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.02)] p-4 text-left md:mx-0 md:mt-8 backdrop-blur-md">
+        <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black/40" />
+        <p className="text-[12px] font-light leading-relaxed text-black/70 md:text-[13px]">
+          <span className="font-medium tracking-wide text-black/90">Clinical Science — </span>
+          {signal.science}
+        </p>
+      </div>
+
+      <div className="mx-auto mt-8 h-px w-32 bg-gradient-to-r from-transparent via-black/10 to-transparent md:mx-0 md:w-44" />
     </div>
   );
 }
@@ -122,12 +136,12 @@ function SignalChapter({ signal }: { signal: SignalData }) {
   return (
     <section
       ref={chapterRef}
-      className="theme-section relative grid min-h-[100svh] overflow-hidden bg-[#050505] px-4 py-24 sm:px-6 md:px-8"
+      className="theme-section relative grid min-h-[100svh] overflow-hidden px-4 py-24 sm:px-6 md:px-8"
     >
-      <div className="theme-section-bg pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(201,178,142,0.14),transparent_28%),radial-gradient(circle_at_74%_78%,rgba(102,132,119,0.14),transparent_32%),linear-gradient(180deg,#050505,#101311_54%,#050505)]" />
+      <div className="theme-section-bg pointer-events-none absolute inset-0" />
       <motion.div
         style={{ opacity: haloOpacity }}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[56vmin] w-[56vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,178,142,0.28),transparent_68%)] blur-2xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[56vmin] w-[56vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,178,142,0.15),transparent_68%)] blur-2xl mix-blend-multiply"
       />
 
       <div
@@ -153,7 +167,7 @@ function SignalChapter({ signal }: { signal: SignalData }) {
 
 export default function RitualWindowsSection() {
   return (
-    <section id="inside" className="theme-section bg-[#050505]">
+    <section id="inside" className="theme-section">
       {signals.map((signal) => (
         <SignalChapter key={signal.id} signal={signal} />
       ))}

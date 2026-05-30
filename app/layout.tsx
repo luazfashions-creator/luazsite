@@ -10,6 +10,30 @@ const inter = Inter({
   display: "swap"
 });
 
+import { Playfair_Display, Cormorant_Garamond, Pinyon_Script } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+  display: "swap"
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap"
+});
+
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pinyon",
+  display: "swap"
+});
+
 const stripExtensionHydrationNoise = `
 (() => {
   const attributeName = "bis_skin_checked";
@@ -61,10 +85,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-theme="light">
       <body
         suppressHydrationWarning
-        className={`${inter.variable} font-sans antialiased bg-[#050505] text-white overflow-x-hidden`}
+        className={`${inter.variable} ${playfair.variable} ${cormorant.variable} ${pinyon.variable} overflow-x-hidden bg-[var(--background)] font-sans text-[var(--foreground)] antialiased`}
       >
         <script
           dangerouslySetInnerHTML={{ __html: stripExtensionHydrationNoise }}

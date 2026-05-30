@@ -9,12 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
-        foreground: "#ffffff",
-        muted: "rgba(255,255,255,0.6)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        obsidian: "#101311",
+        sand: "#C9B28E",
+        sage: "#768F84",
+        "luaz-bg": "#f5f3ef",
+        "luaz-bg-soft": "#ebe7df",
+        "luaz-card": "#ffffff",
+        "luaz-stone": "#d8d3ca",
+        "luaz-ash": "#b9b7b2",
+        "luaz-silver": "#e6e6e3",
+        "luaz-text": "#1d1d1f",
+        "luaz-text-muted": "#6e6e73",
+        "luaz-border": "rgba(29, 29, 31, 0.12)",
+        "luaz-gold-soft": "#b8a06a",
+        "luaz-warm-shadow": "rgba(70, 60, 45, 0.12)",
+        muted: "rgba(29, 29, 31, 0.56)",
         glass: {
-          DEFAULT: "rgba(255,255,255,0.04)",
-          strong: "rgba(255,255,255,0.08)",
+          DEFAULT: "rgba(255,255,255,0.4)",
+          strong: "rgba(255,255,255,0.7)",
         },
         border: {
           light: "rgba(255,255,255,0.1)",
@@ -22,7 +36,10 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"]
+        sans: ["var(--font-inter)", "sans-serif"],
+        serif: ["var(--font-cormorant)", "var(--font-playfair)", "serif"],
+        display: ["var(--font-cormorant)", "var(--font-playfair)", "serif"],
+        cursive: ["var(--font-pinyon)", "cursive"],
       },
     }
   },

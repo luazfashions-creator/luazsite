@@ -1,21 +1,21 @@
-"use client";
-
-import Navbar from "@/components/Navbar";
-import HeroVideo from "@/components/HeroVideo";
+import { CartierHero } from "@/components/CartierHero";
 import RitualExperienceSection from "@/components/RitualExperienceSection";
-import RitualWindowsSection from "@/components/RitualWindowsSection";
-import ScrollStorySections from "@/components/ScrollStorySections";
-import Footer from "@/components/Footer";
+import { RitualSequence } from "@/components/RitualSequence";
+import { AppCompanion } from "@/components/AppCompanion";
+import { FounderStory } from "@/components/FounderStory";
+import { ContactSection } from "@/components/ContactSection";
+import { PremiumFooter } from "@/components/PremiumFooter";
 
 export default function Home() {
   return (
-    <div className="theme-page min-h-screen bg-[#050505] font-sans text-white selection:bg-white/20">
-      <Navbar />
-      <HeroVideo />
+    <div className="theme-page relative min-h-screen bg-luaz-bg font-sans text-luaz-text selection:bg-luaz-stone/30">
+      <CartierHero />
       <RitualExperienceSection />
-      <RitualWindowsSection />
-      <ScrollStorySections />
-      <Footer />
+      <RitualSequence />
+      <AppCompanion />
+      <FounderStory />
+      <ContactSection />
+      <PremiumFooter />
     </div>
   );
 }

@@ -6,17 +6,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
   const links = [
     { name: "Home", href: "#home" },
     { name: "Ritual", href: "#ritual" },
-    { name: "Inside", href: "#inside" },
-    { name: "Science", href: "#science" },
+    { name: "Companion", href: "#app-companion" },
+    { name: "Founder", href: "#founder-story" },
+    { name: "Contact", href: "#contact" },
   ];
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("luaz-theme");
-    const initialTheme = savedTheme === "light" ? "light" : "dark";
+    const initialTheme = savedTheme === "dark" ? "dark" : "light";
 
     setTheme(initialTheme);
     document.documentElement.dataset.theme = initialTheme;
@@ -35,14 +36,14 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
+      className="absolute left-0 right-0 top-2 z-50 flex justify-center px-4 sm:top-3"
     >
-      <div className="theme-nav flex w-full max-w-5xl items-center justify-between rounded-full border border-white/10 bg-black/36 px-4 py-3 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:px-6">
-        <div className="theme-nav-text text-sm font-medium uppercase tracking-widest text-white">
+      <div className="theme-nav flex w-full max-w-5xl items-center justify-between rounded-full border border-white/5 bg-black/20 px-5 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.15)] backdrop-blur-md sm:px-8">
+        <div className="theme-nav-text font-serif text-lg font-medium tracking-[0.15em] text-white">
           LUAZ
         </div>
         
-        <div className="hidden items-center gap-8 text-[13px] font-light tracking-wide text-white/70 md:flex">
+        <div className="hidden items-center gap-10 text-[12px] font-medium uppercase tracking-[0.1em] text-white/60 md:flex">
           {links.map((link) => (
             <Link 
               key={link.name} 

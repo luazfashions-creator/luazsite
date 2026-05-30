@@ -1,13 +1,15 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 
 const objects = [
-  { id: "tea", label: "Signal", name: "Chamomile Tea", image: "/chamomile.jpg" },
-  { id: "salt", label: "Warmth", name: "Bath Salt", image: "/bath_salt.jpeg" },
-  { id: "oil", label: "Scent", name: "Essential Oil", image: "/lavender_essential_oil.jpeg" },
-  { id: "diffuser", label: "Environment", name: "Diffuser", image: "/diffuser.jpg" },
-  { id: "socks", label: "Comfort", name: "Hemp Socks", image: "/hempsocks.webp" }
+  { id: "tea", label: "Signal", name: "Chamomile Tea", image: "/chamomile.jpg", science: "Apigenin binds to GABA receptors, reducing anxiety." },
+  { id: "salt", label: "Warmth", name: "Bath Salt", image: "/bath_salt.jpeg", science: "Magnesium relaxes muscles; temp drop triggers sleep." },
+  { id: "oil", label: "Scent", name: "Essential Oil", image: "/lavender_essential_oil.jpeg", science: "Lavender increases slow-wave deep sleep." },
+  { id: "diffuser", label: "Environment", name: "Diffuser", image: "/diffuser.jpg", science: "Optimal humidity and scent cues condition the brain." },
+  { id: "socks", label: "Comfort", name: "Hemp Socks", image: "/hempsocks.webp", science: "Warming extremities causes sleep-inducing vasodilation." }
 ];
 
 const desktopLayouts = [
@@ -60,9 +62,9 @@ function FloatingObject({
   const x = useTransform(scrollYProgress, [enterStart, enterEnd], ["0vw", layout.x]);
   const y = useTransform(scrollYProgress, [enterStart, enterEnd], ["20vh", layout.y]);
   const scale = useTransform(scrollYProgress, [enterStart, enterEnd, 0.9, 0.98], [0.34, layout.scale, layout.scale, 0.92]);
-  const opacity = useTransform(scrollYProgress, [0.3, enterStart, enterEnd, 0.94, 1], [0, 0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0.3, enterStart, enterEnd], [0, 0, 1]);
   const rotate = useTransform(scrollYProgress, [enterStart, enterEnd], [0, layout.rotate]);
-  const textOpacity = useTransform(scrollYProgress, [0.58, 0.7, 0.94, 1], [0, 1, 1, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0.58, 0.7], [0, 1]);
   const textY = useTransform(scrollYProgress, [0.58, 0.7], [10, 0]);
 
   return (
@@ -70,27 +72,30 @@ function FloatingObject({
       style={{ x, y, scale, opacity, rotate, willChange: "transform, opacity" }}
       className="pointer-events-none absolute z-40 flex flex-col items-center"
     >
-      <div className="theme-media relative h-[28vw] min-h-[94px] max-h-[128px] w-[22vw] min-w-[74px] max-w-[96px] overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.04] shadow-[0_24px_74px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:h-[32vw] sm:max-h-[168px] sm:w-[24vw] sm:max-w-[126px] md:h-[196px] md:w-[140px] md:max-w-none lg:h-[228px] lg:w-[164px] xl:h-[252px] xl:w-[184px]">
+      <div className="theme-media relative h-[28vw] min-h-[94px] max-h-[128px] w-[22vw] min-w-[74px] max-w-[96px] overflow-hidden rounded-[8px] border border-black/5 bg-white/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)] backdrop-blur-xl sm:h-[32vw] sm:max-h-[168px] sm:w-[24vw] sm:max-w-[126px] md:h-[196px] md:w-[140px] md:max-w-none lg:h-[228px] lg:w-[164px] xl:h-[252px] xl:w-[184px]">
         <Image 
           src={obj.image} 
           alt={obj.name}
           fill
-          className="object-cover opacity-90"
+          className="object-cover opacity-90 saturate-[1.1]"
           sizes="(max-width: 640px) 22vw, (max-width: 768px) 24vw, (max-width: 1280px) 164px, 184px"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,5,5,0.08),rgba(4,5,5,0.12)_42%,rgba(4,5,5,0.78))]" />
-        <div className="absolute inset-[7px] rounded-[5px] border border-white/10" />
-        <span className="absolute bottom-3 left-3 z-10 text-[8px] font-medium uppercase tracking-[0.22em] text-white/60 md:text-[9px]">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.05)_42%,rgba(0,0,0,0.3))]" />
+        <div className="absolute inset-[7px] rounded-[5px] border border-white/40" />
+        <span className="absolute bottom-3 left-3 z-10 text-[8px] font-medium uppercase tracking-[0.22em] text-white md:text-[9px]">
           {obj.id}
         </span>
       </div>
       
       <motion.div 
         style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
-        className="mt-2 hidden max-w-[120px] rounded-full border border-white/10 bg-black/40 px-3 py-2 text-center shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-md sm:block md:mt-4 md:max-w-[168px] md:px-5"
+        className="mt-2 hidden max-w-[140px] rounded-[10px] border border-white/40 bg-white/60 px-3 py-2.5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:block md:mt-4 md:max-w-[200px] md:px-4 md:py-3"
       >
-        <h3 className="truncate text-[10px] font-light tracking-wide text-white md:text-sm">{obj.name}</h3>
-        <p className="mt-1 text-[7px] uppercase tracking-[0.28em] text-white/40 md:text-[9px]">{obj.label}</p>
+        <h3 className="truncate text-[11px] font-medium tracking-wide text-black md:text-sm">{obj.name}</h3>
+        <p className="mt-0.5 text-[7px] uppercase tracking-[0.28em] text-black/50 font-medium md:text-[9px]">{obj.label}</p>
+        <div className="mt-2 border-t border-black/5 pt-2">
+          <p className="text-[9px] font-light leading-snug text-black/80 md:text-[10px]">{obj.science}</p>
+        </div>
       </motion.div>
     </motion.div>
   );
@@ -106,13 +111,13 @@ export default function RitualExperienceSection() {
   });
 
   const boxScale = useTransform(scrollYProgress, [0, 0.22, 0.42, 0.55], [0.58, 1.05, 1.05, 0.52]);
-  const boxOpacity = useTransform(scrollYProgress, [0, 0.08, 0.48, 0.6], [0, 1, 1, 0]);
+  const boxOpacity = useTransform(scrollYProgress, [0, 0.08, 0.48, 0.6], [1, 1, 1, 0]);
   const boxY = useTransform(scrollYProgress, [0, 0.22, 0.55], [120, 0, 24]);
   const boxRotateX = useTransform(scrollYProgress, [0, 0.22], [26, 8]);
   
-  const textOpacity = useTransform(scrollYProgress, [0.03, 0.13, 0.25, 0.34], [0, 1, 1, 0]);
-  const textY = useTransform(scrollYProgress, [0.03, 0.13, 0.34], [36, 0, -20]);
-  const finalTextOpacity = useTransform(scrollYProgress, [0.66, 0.76, 0.94, 1], [0, 1, 1, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.13, 0.25, 0.34], [1, 1, 1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.13, 0.34], [36, 0, -20]);
+  const finalTextOpacity = useTransform(scrollYProgress, [0.66, 0.76], [0, 1]);
   const finalTextY = useTransform(scrollYProgress, [0.66, 0.76], [20, 0]);
 
   const lidRotateX = useTransform(scrollYProgress, [0.22, 0.4], [0, -118]);
@@ -124,22 +129,22 @@ export default function RitualExperienceSection() {
   const stageGlowOpacity = useTransform(scrollYProgress, [0.3, 0.54, 0.9, 1], [0, 0.48, 0.34, 0]);
 
   return (
-    <section ref={containerRef} className="theme-section relative h-[430vh] bg-[#050505] md:h-[480vh]" id="ritual">
-      <div className="theme-section-bg perspective-[1200px] sticky top-0 flex h-[100svh] min-h-[560px] w-full flex-col items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_45%,rgba(201,178,142,0.12),transparent_38%),linear-gradient(180deg,#050505,#0b0c0b_52%,#050505)] md:min-h-[620px]">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />
+    <section ref={containerRef} className="relative h-[350vh] md:h-[400vh] bg-luaz-bg border-t border-luaz-border/30" id="ritual">
+      <div className="perspective-[1200px] sticky top-0 flex h-[100svh] min-h-[560px] w-full flex-col items-center justify-center overflow-hidden bg-luaz-bg md:min-h-[620px]">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-luaz-text/10 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,29,31,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(29,29,31,0.025)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />
         
         <motion.div 
           style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
-          className="absolute top-[10%] z-30 w-full px-5 text-center sm:top-[12%] md:top-[16%]"
+          className="absolute top-[12%] z-30 w-full px-5 text-center sm:top-[15%] md:top-[20%]"
         >
-          <p className="mb-4 text-[9px] font-medium uppercase tracking-[0.32em] text-white/40 sm:text-[10px] md:mb-5 md:text-xs md:tracking-[0.4em]">
+          <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.4em] text-black/40 sm:text-[11px] md:mb-8 md:text-xs md:tracking-[0.5em]">
             After the first breath
           </p>
-          <h2 className="mb-4 text-[2.35rem] font-light leading-none tracking-tight text-white sm:text-5xl md:mb-6 md:text-7xl lg:text-8xl">
+          <h2 className="mb-6 font-serif text-[2.8rem] font-light leading-none tracking-tight text-black sm:text-6xl md:mb-8 md:text-[5.5rem] lg:text-[7.5rem]">
             The ritual begins.
           </h2>
-          <div className="mx-auto mt-6 h-12 w-px bg-gradient-to-b from-white/30 to-transparent md:mt-8 md:h-16" />
+          <div className="mx-auto mt-8 h-16 w-[1px] bg-gradient-to-b from-black/20 to-transparent md:mt-12 md:h-24" />
         </motion.div>
 
         <motion.div 
@@ -181,19 +186,18 @@ export default function RitualExperienceSection() {
             }}
             className="absolute inset-0 z-30"
           >
-            <div className="theme-media relative flex h-full w-full items-center justify-center overflow-hidden rounded-[18px] bg-[#111] shadow-[0_54px_140px_rgba(0,0,0,0.66)] [backface-visibility:hidden]">
+            <div className="theme-media relative flex h-full w-full items-center justify-center overflow-hidden rounded-[18px] bg-white shadow-[0_30px_80px_rgba(0,0,0,0.1)] border border-black/5 [backface-visibility:hidden]">
               <Image 
                 src="/box_sample_front.png"
                 alt="LUAZ Box"
                 fill
-                className="object-cover"
+                className="object-cover opacity-90 saturate-[1.2] brightness-[1.1]"
                 sizes="(max-width: 768px) 68vw, 390px"
               />
-              <div className="absolute inset-0 bg-black/5" />
             </div>
             
-            <div className="absolute inset-0 flex items-center justify-center rounded-[18px] border border-white/[0.03] bg-[#080808] shadow-[inset_0_0_40px_rgba(0,0,0,1)]" style={{ transform: "rotateX(180deg)", backfaceVisibility: "hidden" }}>
-              <span className="text-xs uppercase tracking-[0.4em] text-white/10">The ritual begins</span>
+            <div className="absolute inset-0 flex items-center justify-center rounded-[18px] border border-black/5 bg-[#f0f0f0] shadow-[inset_0_0_40px_rgba(0,0,0,0.05)]" style={{ transform: "rotateX(180deg)", backfaceVisibility: "hidden" }}>
+              <span className="text-xs uppercase font-medium tracking-[0.4em] text-black/20">The ritual begins</span>
             </div>
           </motion.div>
         </motion.div>
@@ -217,8 +221,8 @@ export default function RitualExperienceSection() {
           style={{ opacity: finalTextOpacity, y: finalTextY }}
           className="absolute bottom-5 z-50 flex flex-col items-center gap-2 px-5 text-center sm:bottom-7 md:bottom-10 md:gap-3"
         >
-          <p className="text-[9px] uppercase tracking-[0.28em] text-white/40 md:text-[10px] md:tracking-[0.36em]">Complete ritual system</p>
-          <p className="max-w-[300px] text-xs font-light leading-5 text-white/70 sm:max-w-[420px] md:max-w-[520px] md:text-base md:leading-6">
+          <p className="text-[9px] uppercase tracking-[0.28em] font-medium text-black/40 md:text-[10px] md:tracking-[0.36em]">Complete ritual system</p>
+          <p className="max-w-[300px] text-xs font-light leading-5 text-black/80 sm:max-w-[420px] md:max-w-[520px] md:text-base md:leading-6">
             Five sensory cues arranged into one evening transition.
           </p>
         </motion.div>

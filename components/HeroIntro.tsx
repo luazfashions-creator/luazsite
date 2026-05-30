@@ -13,7 +13,7 @@ export function HeroIntro() {
   const wordRef = useRef<HTMLHeadingElement | null>(null);
   const calmRef = useRef<HTMLParagraphElement | null>(null);
   const subRef = useRef<HTMLDivElement | null>(null);
-  const imageRef = useRef<HTMLImageElement | null>(null);
+  const imageRef = useRef<HTMLVideoElement | null>(null);
   const veilRef = useRef<HTMLDivElement | null>(null);
   const cueRef = useRef<HTMLDivElement | null>(null);
   const metaRef = useRef<HTMLDivElement | null>(null);
@@ -187,13 +187,13 @@ export function HeroIntro() {
       ref={sectionRef}
       className="cinema-vignette relative grid h-[100svh] min-h-[620px] place-items-center overflow-hidden bg-[#172b28]"
     >
-      <img
+      <video
         ref={imageRef}
-        src="/assets/heroimage.png"
-        alt="LUAZ evening ritual beside a window"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
+        src="/herovideo.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute inset-0 h-full w-full scale-[1.03] transform-gpu object-cover object-[43%_center] opacity-100 saturate-[0.96]"
       />
       <div
@@ -214,13 +214,13 @@ export function HeroIntro() {
       >
         <h1
           ref={wordRef}
-          className="font-display text-[7rem] leading-[0.78] md:text-[12rem] lg:text-[16rem] xl:text-[19rem]"
+          className="font-serif text-[7rem] leading-[0.78] md:text-[12rem] lg:text-[16rem] xl:text-[19rem]"
         >
           LUAZ
         </h1>
         <p
           ref={calmRef}
-          className="mt-7 font-display text-[2.5rem] leading-[0.95] text-[#f6f7f2] md:mt-4 md:text-[4.8rem]"
+          className="mt-7 font-serif text-[2.5rem] leading-[0.95] text-[#f6f7f2] md:mt-4 md:text-[4.8rem]"
         >
           Instantly calms you down.
         </p>
