@@ -89,7 +89,7 @@ function SignalCopy({ signal }: { signal: SignalData }) {
       <p className="mx-auto mt-5 max-w-[28rem] text-sm font-light leading-6 text-black/70 md:mx-0 md:mt-7 md:text-base md:leading-7">
         {signal.description}
       </p>
-      
+
       <div className="mx-auto mt-6 flex max-w-[26rem] items-start gap-3 rounded-xl border border-black/5 bg-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.02)] p-4 text-left md:mx-0 md:mt-8 backdrop-blur-md">
         <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black/40" />
         <p className="text-[12px] font-light leading-relaxed text-black/70 md:text-[13px]">
@@ -145,9 +145,8 @@ function SignalChapter({ signal }: { signal: SignalData }) {
       />
 
       <div
-        className={`relative mx-auto grid w-full max-w-[1320px] items-center gap-8 self-center md:grid-cols-[0.94fr_1.06fr] md:gap-12 lg:gap-16 ${
-          signal.mediaSide === "right" ? "md:grid-cols-[1.06fr_0.94fr]" : ""
-        }`}
+        className={`relative mx-auto grid w-full max-w-[1320px] items-center gap-8 self-center md:grid-cols-[0.94fr_1.06fr] md:gap-12 lg:gap-16 ${signal.mediaSide === "right" ? "md:grid-cols-[1.06fr_0.94fr]" : ""
+          }`}
       >
         {signal.mediaSide === "left" ? (
           <>

@@ -128,12 +128,25 @@ export default function RitualExperienceSection() {
   const glowScale = useTransform(scrollYProgress, [0.26, 0.62], [0.78, 1.65]);
   const stageGlowOpacity = useTransform(scrollYProgress, [0.3, 0.54, 0.9, 1], [0, 0.48, 0.34, 0]);
 
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.08]);
+
   return (
     <section ref={containerRef} className="relative h-[350vh] md:h-[400vh] bg-luaz-bg border-t border-luaz-border/30" id="ritual">
       <div className="perspective-[1200px] sticky top-0 flex h-[100svh] min-h-[560px] w-full flex-col items-center justify-center overflow-hidden bg-luaz-bg md:min-h-[620px]">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-luaz-text/10 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,29,31,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(29,29,31,0.025)_1px,transparent_1px)] bg-[size:88px_88px] opacity-20" />
         
+        {/* Soft emotional background */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <motion.img
+            src="/images/model.png"
+            alt=""
+            aria-hidden="true"
+            style={{ scale: bgScale }}
+            className="h-full w-full object-cover object-center opacity-[0.5] blur-[2px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#f5f3ef]/80 via-transparent to-[#f5f3ef]/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(245,243,239,0.35)_55%,rgba(245,243,239,0.85)_100%)]" />
+        </div>
+
         <motion.div 
           style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
           className="absolute top-[12%] z-30 w-full px-5 text-center sm:top-[15%] md:top-[20%]"

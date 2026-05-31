@@ -74,7 +74,7 @@ const stripExtensionHydrationNoise = `
 `;
 
 export const metadata: Metadata = {
-  title: "LUAZ — Calmness before sleep.",
+  title: "LUAZ - Experience sleep like never before.",
   description:
     "A structured evening ritual designed to help your body slow down.",
 };

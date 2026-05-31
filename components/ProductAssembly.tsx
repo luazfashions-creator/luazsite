@@ -12,14 +12,14 @@ const products = [
   { id: "05", name: "Warm Socks", role: "Foot warmth as the final physical signal for rest.", src: "/hempsocks.webp" },
 ];
 
-function FloatingCard({ 
-  product, 
-  index, 
-  progress 
-}: { 
-  product: typeof products[0], 
-  index: number, 
-  progress: MotionValue<number> 
+function FloatingCard({
+  product,
+  index,
+  progress
+}: {
+  product: typeof products[0],
+  index: number,
+  progress: MotionValue<number>
 }) {
   const layouts = [
     { x: "-28vw", y: -150 },
@@ -30,7 +30,7 @@ function FloatingCard({
   ];
 
   const layout = layouts[index];
-  
+
   // Parallax effect based on scroll
   const yOffset = useTransform(progress, [0, 1], [layout.y + 120, layout.y - 120]);
   const opacity = useTransform(progress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.5]);
@@ -44,14 +44,14 @@ function FloatingCard({
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="relative h-[320px] w-[220px] overflow-hidden rounded-[8px] bg-luaz-card shadow-[0_24px_80px_rgba(70,60,45,0.10)] border border-[rgba(29,29,31,0.10)]">
-        <Image 
-          src={product.src} 
-          alt={product.name} 
-          fill 
-          className="object-cover opacity-90 transition-all duration-1000 ease-out hover:scale-110" 
+        <Image
+          src={product.src}
+          alt={product.name}
+          fill
+          className="object-cover opacity-90 transition-all duration-1000 ease-out hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-luaz-bg/90 via-transparent to-transparent" />
-        
+
         <div className="absolute bottom-5 left-5 right-5">
           <p className="mb-1 text-[9px] uppercase tracking-widest text-luaz-text-muted/80">{product.id} — {product.name}</p>
           <p className="text-[11px] text-luaz-text/90 leading-relaxed font-light">{product.role}</p>
@@ -70,7 +70,7 @@ export function ProductAssembly() {
 
   return (
     <section id="products" ref={containerRef} className="relative min-h-[120vh] w-full overflow-hidden bg-luaz-bg px-6 py-32 text-luaz-text">
-      
+
       {/* Mobile Stacked Layout */}
       <div className="md:hidden space-y-12 max-w-sm mx-auto pt-24">
         {products.map((p) => (

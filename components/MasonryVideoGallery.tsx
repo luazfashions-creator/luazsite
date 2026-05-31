@@ -75,9 +75,8 @@ export default function MasonryVideoGallery() {
             return (
               <div
                 key={item.id}
-                className={`group relative overflow-hidden rounded-[16px] border border-white/5 bg-[#0a0a0a] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${item.className} ${
-                  isHovered ? "z-30 scale-[1.02] shadow-[0_40px_100px_rgba(0,0,0,0.8)] border-white/20" : "z-10"
-                } ${isFaded ? "opacity-30 blur-[2px] grayscale-[50%]" : "opacity-100"}`}
+                className={`group relative overflow-hidden rounded-[16px] border border-white/5 bg-[#0a0a0a] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${item.className} ${isHovered ? "z-30 scale-[1.02] shadow-[0_40px_100px_rgba(0,0,0,0.8)] border-white/20" : "z-10"
+                  } ${isFaded ? "opacity-30 blur-[2px] grayscale-[50%]" : "opacity-100"}`}
                 onMouseEnter={() => setHoveredId(item.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
@@ -90,17 +89,15 @@ export default function MasonryVideoGallery() {
                 >
                   <source src={item.media} type="video/mp4" />
                 </video>
-                
-                <div 
-                  className={`absolute inset-0 bg-black transition-opacity duration-700 ${
-                    isHovered ? "opacity-75" : "opacity-10 hover:opacity-0"
-                  }`} 
+
+                <div
+                  className={`absolute inset-0 bg-black transition-opacity duration-700 ${isHovered ? "opacity-75" : "opacity-10 hover:opacity-0"
+                    }`}
                 />
 
                 <div className="absolute inset-0 p-6 sm:p-8 md:p-10 flex flex-col justify-end">
-                  <h3 className={`font-light text-white transition-all duration-700 ease-out ${
-                    isHovered ? "translate-y-0 text-3xl sm:text-4xl md:text-5xl" : "translate-y-4 text-2xl sm:text-3xl"
-                  }`}>
+                  <h3 className={`font-light text-white transition-all duration-700 ease-out ${isHovered ? "translate-y-0 text-3xl sm:text-4xl md:text-5xl" : "translate-y-4 text-2xl sm:text-3xl"
+                    }`}>
                     {item.title}
                   </h3>
 
@@ -123,7 +120,7 @@ export default function MasonryVideoGallery() {
                             <p className="mt-2 text-xs font-light leading-relaxed text-white/80 sm:text-sm">{item.story}</p>
                           </div>
                         </div>
-                        
+
                         <div className="mt-2 rounded-[8px] border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                           <p className="text-[9px] uppercase tracking-[0.25em] text-white/50">Clinical Science</p>
                           <p className="mt-2 text-xs font-light leading-relaxed text-white sm:text-sm">

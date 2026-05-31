@@ -61,7 +61,7 @@ export function CartierHero() {
           transition={{ duration: 1.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="font-serif text-4xl font-light leading-[1.1] text-white drop-shadow-lg sm:text-5xl md:text-7xl lg:text-[6rem]"
         >
-          Calmness before sleep.
+          Experience sleep like never before.
         </motion.h1>
       </div>
     </section>

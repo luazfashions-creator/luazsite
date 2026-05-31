@@ -77,7 +77,7 @@ function CardMedia({ step, isActive }: { step: RitualStep, isActive: boolean }) 
   // Using useEffect guarantees we don't violate React Hook rules.
   useEffect(() => {
     if (isActive && videoRef.current) {
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     } else if (!isActive && videoRef.current) {
       videoRef.current.pause();
       // Reset video to start for the next time it becomes active
@@ -273,7 +273,7 @@ function DesktopSequence() {
   return (
     <section ref={containerRef} className="hidden md:block relative h-[400vh] bg-luaz-bg border-t border-luaz-border/50" id="ritual-sequence">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-        
+
         <p className="absolute top-10 left-12 text-[9px] uppercase tracking-[0.3em] text-luaz-text-muted font-medium z-50">
           LUAZ Ritual Sequence
         </p>
@@ -282,7 +282,7 @@ function DesktopSequence() {
         <div className="absolute top-[52%] left-[8%] right-[8%] h-px bg-luaz-border z-0" />
 
         <div className="grid grid-cols-12 w-full h-full max-w-[1600px] px-12 items-center">
-          
+
           {/* Left Text: Headline */}
           <div className="col-span-3 relative h-full flex flex-col justify-center">
             {steps.map((step, i) => (
@@ -322,10 +322,10 @@ function MobileSequence() {
       <div className="px-6 py-12 text-center border-b border-luaz-border">
         <p className="text-[10px] uppercase tracking-[0.3em] text-luaz-text-muted font-medium">LUAZ Ritual Sequence</p>
       </div>
-      
+
       {steps.map((step) => (
-        <motion.div 
-          key={step.id} 
+        <motion.div
+          key={step.id}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -343,7 +343,7 @@ function MobileSequence() {
           </div>
 
           <div className="relative w-full h-[60vh] rounded-2xl border border-[rgba(29,29,31,0.14)] bg-luaz-stone shadow-xl overflow-hidden mb-10">
-             <Image
+            <Image
               src={step.fallbackImage}
               alt={step.title}
               fill
@@ -379,7 +379,7 @@ function MobileSequence() {
             </p>
           </div>
 
-          <a 
+          <a
             href={step.target}
             className="w-full text-center rounded-full bg-luaz-card border border-luaz-border/60 shadow-sm px-6 py-4 text-sm font-medium text-luaz-text transition-all active:bg-luaz-bg"
           >

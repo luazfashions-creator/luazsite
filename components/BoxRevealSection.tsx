@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -28,24 +30,37 @@ export default function BoxRevealSection() {
   const glowOpacity = useTransform(scrollYProgress, [0.45, 0.6], [0, 1]);
   const glowScale = useTransform(scrollYProgress, [0.45, 0.7], [0.8, 1.4]);
 
+  // Background subtle motion
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.08]);
+
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-luaz-bg border-t border-luaz-border" id="ritual">
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden perspective-[1200px] bg-luaz-bg">
+    <section ref={containerRef} className="relative h-[400vh] bg-[#0f0d0c] border-t border-[#0f0d0c]" id="ritual">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden perspective-[1200px] bg-[#0f0d0c]">
         
-        {/* Subtle grid background for museum feel */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(29,29,31,0.03)_1px,transparent_1px),linear-gradient(180deg,rgba(29,29,31,0.025)_1px,transparent_1px)] bg-[size:88px_88px] opacity-30" />
+        {/* Soft emotional background */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <motion.img
+            src="/images/model.png"
+            alt=""
+            aria-hidden="true"
+            style={{ scale: bgScale }}
+            className="h-full w-full object-cover object-center opacity-[0.28] blur-[3px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f0d0c]/80 via-[#241812]/55 to-[#0f0d0c]/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(15,13,12,0.35)_55%,rgba(15,13,12,0.85)_100%)]" />
+        </div>
 
         <motion.div 
           style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
           className="absolute top-[20%] z-30 text-center w-full px-4"
         >
-          <p className="text-luaz-text-muted uppercase tracking-[0.4em] text-[10px] md:text-xs mb-6 font-medium">
+          <p className="text-white/50 uppercase tracking-[0.4em] text-[10px] md:text-xs mb-6 font-medium">
             After the first breath
           </p>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-luaz-text mb-6">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[#f5f3ef] mb-6">
             The ritual begins.
           </h2>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-luaz-border to-transparent mx-auto mt-8" />
+          <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent mx-auto mt-8" />
         </motion.div>
 
         {/* Box Rig */}
