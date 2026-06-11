@@ -5,6 +5,7 @@ import { AppCompanion } from "@/components/AppCompanion";
 import { FounderStory } from "@/components/FounderStory";
 import { ContactSection } from "@/components/ContactSection";
 import { PremiumFooter } from "@/components/PremiumFooter";
+import { AcquireKitSection } from "@/components/AcquireKitSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <AppCompanion />
       <FounderStory />
       <ContactSection />
+      <AcquireKitSection />
       <PremiumFooter />
     </div>
   );
