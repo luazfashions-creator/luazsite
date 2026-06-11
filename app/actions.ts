@@ -39,6 +39,7 @@ export async function getWellnessKitVariant() {
     }
   `;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const res = await shopifyFetch<any>({ query });
   const product = res.body.data.product;
   

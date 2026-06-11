@@ -87,7 +87,9 @@ export async function getProducts() {
     }
   `;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const res = await shopifyFetch<any>({ query });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return res.body.data.products.edges.map((edge: any) => edge.node);
 }
 
@@ -103,6 +105,7 @@ export async function createCart() {
     }
   `;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const res = await shopifyFetch<any>({ query, cache: 'no-store' });
   return res.body.data.cartCreate.cart;
 }
@@ -119,6 +122,7 @@ export async function addToCart(cartId: string, lines: { merchandiseId: string; 
     }
   `;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const res = await shopifyFetch<any>({
     query,
     variables: { cartId, lines },
