@@ -74,9 +74,9 @@ const stripExtensionHydrationNoise = `
 `;
 
 export const metadata: Metadata = {
-  title: "LUAZ - Experience sleep like never before.",
+  title: "LUAZ \u2013 Das Einschlafritual. Aus dem Himalaya. F\u00fcr Deutschland.",
   description:
-    "A structured evening ritual designed to help your body slow down.",
+    "Das LUAZ Ritual \u2014 f\u00fcnf sensorische Schritte, die deinen K\u00f6rper t\u00e4glich in den Schlaf begleiten. Ab \u20ac79 inkl. App.",
 };
 
 export default function RootLayout({

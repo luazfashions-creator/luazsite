@@ -44,7 +44,7 @@ export function FounderStoryClient() {
           >
             <Image 
               src="/images/founder.png" 
-              alt="Founders of LUAZ from Himalayas to Europe"
+              alt="LUAZ Gr&uuml;nder &mdash; von Nepal nach Deutschland"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -77,7 +77,7 @@ export function FounderStoryClient() {
             }}
             className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.34em] text-luaz-gold-soft mb-6 lg:mb-8"
           >
-            FOUNDER STORY
+            GR&Uuml;NDERGESCHICHTE
           </motion.p>
           
           <motion.h2 
@@ -87,7 +87,7 @@ export function FounderStoryClient() {
             }}
             className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.1] text-luaz-text mb-8 lg:mb-12"
           >
-            From the Himalayas to European Nights
+            Von den Himalayas in die deutschen Schlafzimmer.
           </motion.h2>
 
           <div className="space-y-6 lg:space-y-8 text-luaz-text/70 font-light text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed">
@@ -95,14 +95,21 @@ export function FounderStoryClient() {
               hidden: { opacity: 0, y: 50 },
               show: { opacity: 1, y: 0, transition: { duration: 1.4, ease: smoothEase } }
             }}>
-              LUAZ began as a search for quiet in a world that never stops. Between the mountains of Nepal and the pace of modern Europe, the idea became clear: sleep should not begin with a pill or an app, but with a ritual.
+              LUAZ entstand nicht in einem B&uuml;ro. Es entstand in Solukhumbu &mdash; dem Tal unterhalb des Everest, wo der Abend eine nat&uuml;rliche Grenze hat. Kein Mobilfunk. Kein Bildschirm. Nur W&auml;rme, Tee und das Dunkelwerden.
             </motion.p>
             
             <motion.p variants={{
               hidden: { opacity: 0, y: 50 },
               show: { opacity: 1, y: 0, transition: { duration: 1.4, ease: smoothEase } }
             }}>
-              The founder journey connects origin, memory, and modern wellbeing - transforming simple evening objects into a premium sleep ritual designed for calm, warmth, and repetition.
+              Zur&uuml;ck in Europa fehlte genau das: nicht der Schlaf, sondern der &Uuml;bergang dahin. Das Ritual. Die Struktur. Der Moment, in dem der K&ouml;rper versteht: jetzt darf ich aufh&ouml;ren.
+            </motion.p>
+
+            <motion.p variants={{
+              hidden: { opacity: 0, y: 50 },
+              show: { opacity: 1, y: 0, transition: { duration: 1.4, ease: smoothEase } }
+            }}>
+              LUAZ ist dieser Moment &mdash; in eine Box gepackt.
             </motion.p>
           </div>
 
@@ -114,7 +121,7 @@ export function FounderStoryClient() {
             className="mt-12 lg:mt-16 pt-8 border-t border-luaz-border"
           >
             <p className="text-[12px] sm:text-[13px] font-serif italic text-luaz-text/60 tracking-wide">
-              A ritual carried from the mountains into the modern bedroom.
+              Ein Ritual aus dem Ged&auml;chtnis der Berge. F&uuml;r den modernen Alltag.
             </p>
           </motion.div>
         </motion.div>

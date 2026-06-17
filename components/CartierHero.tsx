@@ -53,7 +53,7 @@ export function CartierHero() {
           transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mb-4 text-[10px] font-medium uppercase tracking-[0.3em] text-white/80 drop-shadow-md"
         >
-          A Structured Evening Ritual
+          Das Einschlafritual
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -61,8 +61,16 @@ export function CartierHero() {
           transition={{ duration: 1.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="font-serif text-4xl font-light leading-[1.1] text-white drop-shadow-lg sm:text-5xl md:text-7xl lg:text-[6rem]"
         >
-          Experience sleep like never before.
+          Dein Körper weiß, wie er schläft.<br />Er hat es nur verlernt.
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.8, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-6 text-sm md:text-base font-light text-white/90 max-w-lg mx-auto leading-relaxed drop-shadow-md"
+        >
+          Fünf sensorische Schritte. Jeden Abend.<br />Bis dein Körper von selbst loslässt.
+        </motion.p>
       </div>
     </section>
   );

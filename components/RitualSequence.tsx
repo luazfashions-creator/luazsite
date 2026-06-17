@@ -9,61 +9,61 @@ const steps = [
   {
     id: "bath-salt",
     number: "1/4",
-    sense: "TOUCH",
-    title: "Himalayan Bath Salt",
-    headline: "Touch begins the descent.",
+    sense: "BERÜHRUNG",
+    title: "Himalaya-Badesalz",
+    headline: "Berührung zieht eine Grenze.",
     shortLine: "Warm mineral water becomes the first signal that the day is ending.",
-    ethos: "Across European bathing culture, warm mineral water has long been associated with recovery, stillness, and evening restoration.",
-    logos: "LUAZ begins with the feet because the ritual must start physically before the mind can follow.",
-    pathos: "The first touch of warm water creates a quiet boundary between digital noise and sleep.",
+    ethos: "Warmwasserbäder gehören seit Generationen zur europäischen Abendkultur — als Übergang, nicht als Pflege.",
+    logos: "LUAZ beginnt an den Füßen, weil der Körper dem Geist vorausgehen muss. Erst das Physische. Dann das Mentale.",
+    pathos: "Himalaya-Salz aus dem Khumbu-Tal. Handverlesen. Mineralienreich. Der erste Kontakt mit dem warmen Wasser zieht eine stille Grenze — auf dieser Seite liegt der Tag, auf jener der Schlaf.",
     media: "/bathsalt.mp4",
     fallbackImage: "/bath_salt2.jpeg",
-    cta: "Continue to the Companion",
+    cta: "Weiter zum App-Begleiter",
     target: "#app-companion"
   },
   {
     id: "aroma",
     number: "2/4",
-    sense: "SMELL",
-    title: "Essential Oil & Diffuser",
-    headline: "Scent turns the room into a signal.",
+    sense: "GERUCH",
+    title: "Ätherisches Öl & Diffuser",
+    headline: "Duft macht den Raum zum Signal.",
     shortLine: "Aroma changes the atmosphere before the body lies down.",
-    ethos: "European apothecaries and domestic evening rituals have long used botanicals, resins, woods, and flowers as quiet companions to rest.",
-    logos: "The essential oil and diffuser work together so the room itself becomes part of the sleep routine.",
-    pathos: "Repeated nightly, the scent becomes familiar — a soft reminder that nothing more is required today.",
+    ethos: "Lavendel. Bergamotte. Zedernholz. Seit Jahrhunderten begleiten diese Pflanzen den Abend — in Apotheken, in Schlafzimmern, in Erinnerungen.",
+    logos: "Der Diffuser und das Öl verwandeln den Raum selbst in ein Einschlafsignal. Nicht du gehst ins Schlafzimmer — das Schlafzimmer empfängt dich.",
+    pathos: "Täglich wiederholt, wird der Duft zur konditionierten Reaktion. Dein Nervensystem lernt: wenn dieser Geruch kommt, ist der Tag vorbei.",
     media: "/essential_oil.mp4",
     fallbackImage: "/lavenderbathsalt.jpg",
-    cta: "Continue to the Companion",
+    cta: "Weiter zum App-Begleiter",
     target: "#app-companion"
   },
   {
     id: "chamomile-tea",
     number: "3/4",
-    sense: "TASTE",
-    title: "Chamomile Tea",
-    headline: "Taste creates the pause.",
+    sense: "GESCHMACK",
+    title: "Bio-Kamillentee",
+    headline: "Geschmack erzwingt die Pause.",
     shortLine: "A warm cup separates the active day from the sleeping night.",
-    ethos: "Chamomile has been one of Europe’s most familiar evening herbs for generations.",
-    logos: "In LUAZ, tea is not positioned as a medical promise, but as a behavioural pause that slows the transition into sleep.",
-    pathos: "Steam, warmth, and slowness turn drinking into a small act of care before bed.",
+    ethos: "Echte Kamille aus biologischem Anbau. Keine Teebeutel-Qualität — sondern der Geschmack, den du aus der Kindheit kennst.",
+    logos: "In LUAZ ist der Tee kein Schlafmittel. Er ist eine Verhaltensunterbrechung — drei Minuten, in denen nichts anderes passiert. Kein Bildschirm. Kein Scrollen. Nur der Dampf und deine Hände.",
+    pathos: "Langsamkeit ist keine Romantisierung. Sie ist eine neurologische Notwendigkeit. Der Körper braucht Zeit, um aus dem Alarmmodus zu wechseln. Drei Minuten Tee geben ihm diese Zeit.",
     media: "/chamomilevideo.mp4",
     fallbackImage: "/chamomile.jpg",
-    cta: "Continue to the Companion",
+    cta: "Weiter zum App-Begleiter",
     target: "#app-companion"
   },
   {
     id: "socks",
     number: "4/4",
-    sense: "WARMTH",
-    title: "Warm Hemp Socks",
-    headline: "Warmth closes the ritual.",
+    sense: "WÄRME",
+    title: "Hanfsocken — Wärme als Abschluss",
+    headline: "Wärme schließt das Ritual.",
     shortLine: "The final step is not another product. It is the closing gesture.",
-    ethos: "Warm feet have long belonged to European home comfort rituals before bed.",
-    logos: "After water, scent, and tea, the socks keep the body in a state of quiet physical comfort.",
-    pathos: "The ritual ends with softness — a simple sign that the body can stop preparing and start resting.",
+    ethos: "Forschungen der Universität Basel zeigen: warme Füße verkürzen die Einschlafzeit messbar. Nicht als Folklore — als Physiologie.",
+    logos: "Nach Wasser, Duft und Tee signalisieren die Socken dem Körper: es gibt nichts mehr zu tun. Das Thermoregulationssystem entspannt. Die Körperkerntemperatur sinkt. Der Schlaf kommt.",
+    pathos: "Weich. Warm. Aus Fair-Trade-Hanf. Das einfachste Element des Rituals — und vielleicht das wirksamste.",
     media: "/hempsocks.mp4",
     fallbackImage: "/hempsocks.webp",
-    cta: "Continue to the Companion",
+    cta: "Weiter zum App-Begleiter",
     target: "#app-companion"
   }
 ];
@@ -275,7 +275,7 @@ function DesktopSequence() {
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
         <p className="absolute top-10 left-12 text-[9px] uppercase tracking-[0.3em] text-luaz-text-muted font-medium z-50">
-          LUAZ Ritual Sequence
+          LUAZ Ritualsequenz
         </p>
 
         {/* Museum guide line */}
@@ -320,7 +320,7 @@ function MobileSequence() {
   return (
     <section className="md:hidden bg-luaz-bg border-t border-luaz-border text-luaz-text" id="ritual-sequence-mobile">
       <div className="px-6 py-12 text-center border-b border-luaz-border">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-luaz-text-muted font-medium">LUAZ Ritual Sequence</p>
+        <p className="text-[10px] uppercase tracking-[0.3em] text-luaz-text-muted font-medium">LUAZ Ritualsequenz</p>
       </div>
 
       {steps.map((step) => (

@@ -13,7 +13,7 @@ export function ContactSection() {
           transition={{ duration: 1 }}
           className="text-xs uppercase tracking-[0.35em] text-luaz-gold-soft"
         >
-          Contact
+          Kontakt
         </motion.p>
         <motion.h2 
           initial={{ opacity: 0, y: 10 }}
@@ -22,7 +22,7 @@ export function ContactSection() {
           transition={{ duration: 1, delay: 0.2 }}
           className="mt-6 font-serif text-5xl md:text-6xl lg:text-7xl text-luaz-text"
         >
-          Begin the LUAZ Ritual
+          Bereit f&uuml;r dein erstes Ritual?
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 10 }}
@@ -31,7 +31,7 @@ export function ContactSection() {
           transition={{ duration: 1, delay: 0.3 }}
           className="mt-8 text-luaz-text-muted leading-relaxed max-w-lg mx-auto"
         >
-          For early access, collaborations, or private launch invitations.
+          F&uuml;r Fragen, Kooperationen oder pers&ouml;nliche Bestellberatung.
         </motion.p>
       </div>
 
@@ -52,7 +52,7 @@ export function ContactSection() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="email" className="mb-2 text-[10px] uppercase tracking-[0.2em] text-luaz-text-muted">Email</label>
+            <label htmlFor="email" className="mb-2 text-[10px] uppercase tracking-[0.2em] text-luaz-text-muted">E-Mail</label>
             <input 
               type="email" 
               id="email" 
@@ -62,7 +62,7 @@ export function ContactSection() {
         </div>
         
         <div className="flex flex-col pt-4">
-          <label htmlFor="message" className="mb-2 text-[10px] uppercase tracking-[0.2em] text-luaz-text-muted">Message</label>
+          <label htmlFor="message" className="mb-2 text-[10px] uppercase tracking-[0.2em] text-luaz-text-muted">Nachricht</label>
           <textarea 
             id="message" 
             rows={4}
@@ -75,7 +75,7 @@ export function ContactSection() {
             type="button" 
             className="border border-luaz-border bg-luaz-card px-12 py-4 text-[11px] uppercase tracking-[0.2em] text-luaz-text transition-all hover:bg-luaz-stone hover:border-luaz-stone"
           >
-            Request Early Access
+            Nachricht senden
           </button>
         </div>
       </motion.form>

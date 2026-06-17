@@ -152,10 +152,10 @@ export default function RitualExperienceSection() {
           className="absolute top-[12%] z-30 w-full px-5 text-center sm:top-[15%] md:top-[20%]"
         >
           <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.4em] text-black/40 sm:text-[11px] md:mb-8 md:text-xs md:tracking-[0.5em]">
-            After the first breath
+            Nach dem ersten Atemzug
           </p>
           <h2 className="mb-6 font-serif text-[2.8rem] font-light leading-none tracking-tight text-black sm:text-6xl md:mb-8 md:text-[5.5rem] lg:text-[7.5rem]">
-            The ritual begins.
+            Beginnt das Ritual.
           </h2>
           <div className="mx-auto mt-8 h-16 w-[1px] bg-gradient-to-b from-black/20 to-transparent md:mt-12 md:h-24" />
         </motion.div>
@@ -210,7 +210,7 @@ export default function RitualExperienceSection() {
             </div>
             
             <div className="absolute inset-0 flex items-center justify-center rounded-[18px] border border-black/5 bg-[#f0f0f0] shadow-[inset_0_0_40px_rgba(0,0,0,0.05)]" style={{ transform: "rotateX(180deg)", backfaceVisibility: "hidden" }}>
-              <span className="text-xs uppercase font-medium tracking-[0.4em] text-black/20">The ritual begins</span>
+              <span className="text-xs uppercase font-medium tracking-[0.4em] text-black/20">Beginnt das Ritual</span>
             </div>
           </motion.div>
         </motion.div>
@@ -234,9 +234,9 @@ export default function RitualExperienceSection() {
           style={{ opacity: finalTextOpacity, y: finalTextY }}
           className="absolute bottom-5 z-50 flex flex-col items-center gap-2 px-5 text-center sm:bottom-7 md:bottom-10 md:gap-3"
         >
-          <p className="text-[9px] uppercase tracking-[0.28em] font-medium text-black/40 md:text-[10px] md:tracking-[0.36em]">Complete ritual system</p>
+          <p className="text-[9px] uppercase tracking-[0.28em] font-medium text-black/40 md:text-[10px] md:tracking-[0.36em]">Das vollständige Ritualsystem</p>
           <p className="max-w-[300px] text-xs font-light leading-5 text-black/80 sm:max-w-[420px] md:max-w-[520px] md:text-base md:leading-6">
-            Five sensory cues arranged into one evening transition.
+            Fünf Sinnesreize. Eine Abendstruktur. Täglich wiederholt — bis dein Körper sie kennt.
           </p>
         </motion.div>
 

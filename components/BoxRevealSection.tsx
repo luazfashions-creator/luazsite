@@ -55,10 +55,10 @@ export default function BoxRevealSection() {
           className="absolute top-[20%] z-30 text-center w-full px-4"
         >
           <p className="text-white/50 uppercase tracking-[0.4em] text-[10px] md:text-xs mb-6 font-medium">
-            After the first breath
+            Nach dem ersten Atemzug
           </p>
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-[#f5f3ef] mb-6">
-            The ritual begins.
+            Beginnt das Ritual.
           </h2>
           <div className="w-[1px] h-16 bg-gradient-to-b from-white/20 to-transparent mx-auto mt-8" />
         </motion.div>

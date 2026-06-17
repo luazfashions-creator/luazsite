@@ -12,11 +12,11 @@ export default function Home() {
     <div className="theme-page relative min-h-screen bg-luaz-bg font-sans text-luaz-text selection:bg-luaz-stone/30">
       <CartierHero />
       <RitualExperienceSection />
+      <AcquireKitSection />
       <RitualSequence />
       <AppCompanion />
       <FounderStory />
       <ContactSection />
-      <AcquireKitSection />
       <PremiumFooter />
     </div>
   );
