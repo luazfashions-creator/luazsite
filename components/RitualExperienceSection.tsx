@@ -1,39 +1,99 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { VideoHTMLAttributes } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 
-const objects = [
-  { id: "tea", label: "Signal", name: "Chamomile Tea", image: "/chamomile.jpg", science: "Apigenin binds to GABA receptors, reducing anxiety." },
-  { id: "salt", label: "Warmth", name: "Bath Salt", image: "/bath_salt.jpeg", science: "Magnesium relaxes muscles; temp drop triggers sleep." },
-  { id: "oil", label: "Scent", name: "Essential Oil", image: "/lavender_essential_oil.jpeg", science: "Lavender increases slow-wave deep sleep." },
-  { id: "diffuser", label: "Environment", name: "Diffuser", image: "/diffuser.jpg", science: "Optimal humidity and scent cues condition the brain." },
-  { id: "socks", label: "Comfort", name: "Hemp Socks", image: "/hempsocks.webp", science: "Warming extremities causes sleep-inducing vasodilation." }
+const products = [
+  {
+    id: "bath-salt",
+    number: "1/5",
+    sense: "BERÜHRUNG",
+    title: "Himalaya-Badesalz",
+    headline: "Berührung zieht eine Grenze.",
+    shortLine: "Warm mineral water becomes the first signal that the day is ending.",
+    overviewDescription: "Wärme entspannt den Körper und markiert den Übergang in den Abend.",
+    ethos: "Warmwasserbäder gehören seit Generationen zur europäischen Abendkultur — als Übergang, nicht als Pflege.",
+    logos: "LUAZ beginnt an den Füßen, weil der Körper dem Geist vorausgehen muss. Erst das Physische. Dann das Mentale.",
+    pathos: "Himalaya-Salz aus dem Khumbu-Tal. Handverlesen. Mineralienreich. Der erste Kontakt mit dem warmen Wasser zieht eine stille Grenze — auf dieser Seite liegt der Tag, auf jener der Schlaf.",
+    media: "/media/ritual/bath-salt.mp4",
+    fallbackImage: "/media/products/bath-salt.webp",
+    cta: "Weiter zum App-Begleiter",
+    target: "#app-companion"
+  },
+  {
+    id: "aroma",
+    number: "2/5",
+    sense: "GERUCH",
+    title: "Ätherisches Öl",
+    headline: "Duft macht den Raum zum Signal.",
+    shortLine: "Aroma changes the atmosphere before the body lies down.",
+    overviewDescription: "Ein beruhigender Duftimpuls für Ruhe, Atmung und Atmosphäre.",
+    ethos: "Lavendel. Bergamotte. Zedernholz. Seit Jahrhunderten begleiten diese Pflanzen den Abend — in Apotheken, in Schlafzimmern, in Erinnerungen.",
+    logos: "Der Duft verwandelt den Raum selbst in ein Einschlafsignal. Nicht du gehst ins Schlafzimmer — das Schlafzimmer empfängt dich.",
+    pathos: "Täglich wiederholt, wird der Duft zur konditionierten Reaktion. Dein Nervensystem lernt: wenn dieser Geruch kommt, ist der Tag vorbei.",
+    media: "/media/ritual/essential-oil.mp4",
+    fallbackImage: "/media/products/essential-oil.webp",
+    cta: "Weiter zum App-Begleiter",
+    target: "#app-companion"
+  },
+  {
+    id: "socks",
+    number: "3/5",
+    sense: "WÄRME",
+    title: "Hanfsocken",
+    headline: "Wärme schließt das Ritual.",
+    shortLine: "The final step is not another product. It is the closing gesture.",
+    overviewDescription: "Wärme an den Füßen unterstützt das Loslassen und körperliche Entspannen.",
+    ethos: "Forschungen der Universität Basel zeigen: warme Füße verkürzen die Einschlafzeit messbar. Nicht als Folklore — als Physiologie.",
+    logos: "Nach Wasser, Duft und Tee signalisieren die Socken dem Körper: es gibt nichts mehr zu tun. Das Thermoregulationssystem entspannt.",
+    pathos: "Weich. Warm. Aus Fair-Trade-Hanf. Das einfachste Element des Rituals — und vielleicht das wirksamste.",
+    media: "/media/ritual/socks.mp4",
+    fallbackImage: "/media/products/socks.webp",
+    cta: "Weiter zum App-Begleiter",
+    target: "#app-companion"
+  },
+  {
+    id: "chamomile-tea",
+    number: "4/5",
+    sense: "GESCHMACK",
+    title: "Bio-Kamillentee",
+    headline: "Geschmack erzwingt die Pause.",
+    shortLine: "A warm cup separates the active day from the sleeping night.",
+    overviewDescription: "Ein sanfter Abschluss des Tages, warm, leicht und beruhigend.",
+    ethos: "Echte Kamille aus biologischem Anbau. Keine Teebeutel-Qualität — sondern der Geschmack, den du aus der Kindheit kennst.",
+    logos: "In LUAZ ist der Tee kein Schlafmittel. Er ist eine Verhaltensunterbrechung — drei Minuten, in denen nichts anderes passiert. Nur der Dampf und deine Hände.",
+    pathos: "Langsamkeit ist keine Romantisierung. Sie ist eine neurologische Notwendigkeit. Der Körper braucht Zeit, um aus dem Alarmmodus zu wechseln.",
+    media: "/media/ritual/tea.mp4",
+    fallbackImage: "/media/products/tea.webp",
+    cta: "Weiter zum App-Begleiter",
+    target: "#app-companion"
+  },
+  {
+    id: "diffuser",
+    number: "5/5",
+    sense: "ATMOSPHÄRE",
+    title: "Keramik-Diffuser",
+    headline: "Ästhetik der Stille.",
+    shortLine: "A silent guardian for your evening transition.",
+    overviewDescription: "Der Raum wird stiller, weicher und auf Schlaf ausgerichtet.",
+    ethos: "Handgefertigte Keramik, entworfen, um sich in die Architektur deines Schlafzimmers einzufügen, anstatt sie zu stören.",
+    logos: "Der Diffuser vernebelt das Öl durch Ultraschall kalt, um die molekulare Struktur der ätherischen Essenzen zu erhalten. Maximale Wirkung. Minimales Geräusch.",
+    pathos: "Ein sanftes Licht. Ein feiner Nebel. Wenn der Diffuser atmet, lernt der Raum, mit ihm zu atmen.",
+    media: "/media/ritual/diffuser.mp4",
+    fallbackImage: "/media/products/diffuser.webp",
+    cta: "Weiter zum App-Begleiter",
+    target: "#app-companion"
+  }
 ];
 
-const desktopLayouts = [
-  { x: "-36vw", y: "-8vh", rotate: -8, scale: 0.92 },
-  { x: "-18vw", y: "15vh", rotate: 4, scale: 0.86 },
-  { x: "0vw", y: "-18vh", rotate: 0, scale: 1 },
-  { x: "18vw", y: "15vh", rotate: -4, scale: 0.86 },
-  { x: "36vw", y: "-8vh", rotate: 8, scale: 0.92 }
-];
-
-const mobileLayouts = [
-  { x: "-31vw", y: "-13.5vh", rotate: -8, scale: 0.9 },
-  { x: "0vw", y: "-14.5vh", rotate: 3, scale: 0.94 },
-  { x: "31vw", y: "-13.5vh", rotate: 8, scale: 0.9 },
-  { x: "-18vw", y: "15vh", rotate: -4, scale: 0.94 },
-  { x: "18vw", y: "15vh", rotate: 5, scale: 0.94 }
-];
-
-function useIsDesktop() {
-  const [isDesktop, setIsDesktop] = useState(false);
+function useReducedMotion() {
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const query = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(query.matches);
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(query.matches);
 
     update();
     query.addEventListener("change", update);
@@ -41,112 +101,166 @@ function useIsDesktop() {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  return isDesktop;
+  return reducedMotion;
 }
 
-function FloatingObject({
-  isDesktop,
-  obj,
-  index,
+interface VideoPlayerProps extends VideoHTMLAttributes<HTMLVideoElement> {
+  isActive: boolean;
+}
+
+function VideoPlayer({ isActive, ...props }: VideoPlayerProps) {
+  const ref = useRef<HTMLVideoElement>(null);
+  
+  useEffect(() => {
+    if (isActive && ref.current) {
+      ref.current.play().catch(() => {});
+    } else if (!isActive && ref.current) {
+      ref.current.pause();
+    }
+  }, [isActive]);
+  
+  return <video ref={ref} {...props} />;
+}
+
+function GroupVideoReveal({
   scrollYProgress
 }: {
-  isDesktop: boolean;
-  obj: (typeof objects)[0];
-  index: number;
   scrollYProgress: MotionValue<number>;
 }) {
-  const layout = (isDesktop ? desktopLayouts : mobileLayouts)[index];
-  const enterStart = 0.34 + index * 0.025;
-  const enterEnd = 0.62 + index * 0.015;
+  const start = 0.5;
+  const fadeInPoint = 0.7;
 
-  const x = useTransform(scrollYProgress, [enterStart, enterEnd], ["0vw", layout.x]);
-  const y = useTransform(scrollYProgress, [enterStart, enterEnd], ["20vh", layout.y]);
-  const scale = useTransform(scrollYProgress, [enterStart, enterEnd, 0.9, 0.98], [0.34, layout.scale, layout.scale, 0.92]);
-  const opacity = useTransform(scrollYProgress, [0.3, enterStart, enterEnd], [0, 0, 1]);
-  const rotate = useTransform(scrollYProgress, [enterStart, enterEnd], [0, layout.rotate]);
-  const textOpacity = useTransform(scrollYProgress, [0.58, 0.7], [0, 1]);
-  const textY = useTransform(scrollYProgress, [0.58, 0.7], [10, 0]);
+  const opacity = useTransform(
+    scrollYProgress, 
+    [start, fadeInPoint], 
+    [0, 1]
+  );
+  
+  const y = useTransform(
+    scrollYProgress,
+    [start, fadeInPoint],
+    [60, 0]
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    [start, fadeInPoint],
+    [0.9, 1]
+  );
+
+  const reducedMotion = useReducedMotion();
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    return opacity.on("change", (latest) => {
+      setIsActive(latest > 0.1);
+    });
+  }, [opacity]);
 
   return (
     <motion.div
-      style={{ x, y, scale, opacity, rotate, willChange: "transform, opacity" }}
-      className="pointer-events-none absolute z-40 flex flex-col items-center"
+      style={{ opacity, y, scale, willChange: "transform, opacity" }}
+      className="absolute inset-0 z-30 flex flex-col items-center justify-center pointer-events-none px-4"
     >
-      <div className="theme-media relative h-[28vw] min-h-[94px] max-h-[128px] w-[22vw] min-w-[74px] max-w-[96px] overflow-hidden rounded-[8px] border border-black/5 bg-white/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)] backdrop-blur-xl sm:h-[32vw] sm:max-h-[168px] sm:w-[24vw] sm:max-w-[126px] md:h-[196px] md:w-[140px] md:max-w-none lg:h-[228px] lg:w-[164px] xl:h-[252px] xl:w-[184px]">
-        <Image 
-          src={obj.image} 
-          alt={obj.name}
-          fill
-          className="object-cover opacity-90 saturate-[1.1]"
-          sizes="(max-width: 640px) 22vw, (max-width: 768px) 24vw, (max-width: 1280px) 164px, 184px"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.05)_42%,rgba(0,0,0,0.3))]" />
-        <div className="absolute inset-[7px] rounded-[5px] border border-white/40" />
-        <span className="absolute bottom-3 left-3 z-10 text-[8px] font-medium uppercase tracking-[0.22em] text-white md:text-[9px]">
-          {obj.id}
-        </span>
+      <div className="text-center mb-10 md:mb-16">
+        <p className="text-[10px] tracking-[0.3em] font-medium uppercase text-luaz-gold-soft mb-3">Die fünf Elemente</p>
+        <h3 className="font-serif italic text-3xl md:text-5xl text-luaz-text drop-shadow-sm">Das Ritual</h3>
       </div>
       
-      <motion.div 
-        style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
-        className="mt-2 hidden max-w-[140px] rounded-[10px] border border-white/40 bg-white/60 px-3 py-2.5 text-center shadow-[0_12px_30px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:block md:mt-4 md:max-w-[200px] md:px-4 md:py-3"
-      >
-        <h3 className="truncate text-[11px] font-medium tracking-wide text-black md:text-sm">{obj.name}</h3>
-        <p className="mt-0.5 text-[7px] uppercase tracking-[0.28em] text-black/50 font-medium md:text-[9px]">{obj.label}</p>
-        <div className="mt-2 border-t border-black/5 pt-2">
-          <p className="text-[9px] font-light leading-snug text-black/80 md:text-[10px]">{obj.science}</p>
-        </div>
-      </motion.div>
+      {/* Desktop Layout - Horizontal Staggered Row */}
+      <div className="hidden md:flex flex-row justify-center items-start gap-4 lg:gap-8 w-full max-w-[1400px]">
+        {products.map((product, i) => {
+          const yOffset = i % 2 !== 0 ? "translate-y-12" : "translate-y-0";
+          return (
+            <div key={product.id} className={`w-[18%] flex flex-col transition-transform ${yOffset}`}>
+               {/* Video Container */}
+               <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl border border-[rgba(29,29,31,0.08)] bg-luaz-stone mb-6 pointer-events-auto">
+                 {reducedMotion ? (
+                   <Image src={product.fallbackImage} alt={product.title} fill className="object-cover" />
+                 ) : (
+                   <VideoPlayer 
+                     isActive={isActive} 
+                     src={product.media} 
+                     poster={product.fallbackImage} 
+                     muted loop playsInline 
+                     className="absolute inset-0 h-full w-full object-cover saturate-[1.05]" 
+                   />
+                 )}
+               </div>
+               {/* Text Container */}
+               <div className="px-2 text-center pointer-events-auto">
+                 <p className="text-[10px] tracking-[0.2em] font-medium uppercase text-luaz-gold-soft mb-2">Step {i + 1}</p>
+                 <h4 className="font-serif text-lg text-luaz-text mb-3">{product.title}</h4>
+                 <p className="text-[11px] leading-relaxed text-luaz-text/70">{product.overviewDescription}</p>
+               </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Mobile Layout - Premium Horizontal Scroll */}
+      <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 w-[100vw] px-8 pb-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        {products.map((product, i) => {
+          return (
+            <div key={product.id} className={`w-[75vw] flex-shrink-0 snap-center flex flex-col pointer-events-auto`}>
+               {/* Video Container */}
+               <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl border border-[rgba(29,29,31,0.08)] bg-luaz-stone mb-5">
+                 {reducedMotion ? (
+                   <Image src={product.fallbackImage} alt={product.title} fill className="object-cover" />
+                 ) : (
+                   <VideoPlayer 
+                     isActive={isActive} 
+                     src={product.media} 
+                     poster={product.fallbackImage} 
+                     muted loop playsInline 
+                     className="absolute inset-0 h-full w-full object-cover saturate-[1.05]" 
+                   />
+                 )}
+               </div>
+               {/* Text Container */}
+               <div className="px-2 text-center">
+                 <p className="text-[10px] tracking-[0.2em] font-medium uppercase text-luaz-gold-soft mb-2">Step {i + 1}</p>
+                 <h4 className="font-serif text-[20px] leading-tight text-luaz-text mb-3">{product.title}</h4>
+                 <p className="text-[12px] leading-relaxed text-luaz-text/70 px-4">{product.overviewDescription}</p>
+               </div>
+            </div>
+          )
+        })}
+      </div>
     </motion.div>
   );
 }
 
+
+
 export default function RitualExperienceSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isDesktop = useIsDesktop();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
-  const boxScale = useTransform(scrollYProgress, [0, 0.22, 0.42, 0.55], [0.58, 1.05, 1.05, 0.52]);
-  const boxOpacity = useTransform(scrollYProgress, [0, 0.08, 0.48, 0.6], [1, 1, 1, 0]);
-  const boxY = useTransform(scrollYProgress, [0, 0.22, 0.55], [120, 0, 24]);
-  const boxRotateX = useTransform(scrollYProgress, [0, 0.22], [26, 8]);
+  // Box opening animation mapped to 240vh total height
+  const boxScale = useTransform(scrollYProgress, [0, 0.35], [0.65, 0.9]);
+  const boxOpacity = useTransform(scrollYProgress, [0, 0.25, 0.4, 0.55], [1, 1, 1, 0]);
+  const boxY = useTransform(scrollYProgress, [0, 0.35], [100, -20]);
+  const boxRotateX = useTransform(scrollYProgress, [0, 0.35], [26, 8]);
   
-  const textOpacity = useTransform(scrollYProgress, [0, 0.13, 0.25, 0.34], [1, 1, 1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 0.13, 0.34], [36, 0, -20]);
-  const finalTextOpacity = useTransform(scrollYProgress, [0.66, 0.76], [0, 1]);
-  const finalTextY = useTransform(scrollYProgress, [0.66, 0.76], [20, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.25], [36, -20]);
 
-  const lidRotateX = useTransform(scrollYProgress, [0.22, 0.4], [0, -118]);
-  const lidY = useTransform(scrollYProgress, [0.22, 0.4], [0, -34]);
-  const lidZ = useTransform(scrollYProgress, [0.22, 0.4], [0, -18]);
+  const lidRotateX = useTransform(scrollYProgress, [0.25, 0.4], [0, -118]);
+  const lidY = useTransform(scrollYProgress, [0.25, 0.4], [0, -34]);
+  const lidZ = useTransform(scrollYProgress, [0.25, 0.4], [0, -18]);
 
-  const glowOpacity = useTransform(scrollYProgress, [0.26, 0.45, 0.82, 0.96], [0, 1, 0.8, 0]);
-  const glowScale = useTransform(scrollYProgress, [0.26, 0.62], [0.78, 1.65]);
-  const stageGlowOpacity = useTransform(scrollYProgress, [0.3, 0.54, 0.9, 1], [0, 0.48, 0.34, 0]);
-
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1.03, 1.08]);
+  const glowOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
 
   return (
-    <section ref={containerRef} className="relative h-[350vh] md:h-[400vh] bg-luaz-bg border-t border-luaz-border/30" id="ritual">
-      <div className="perspective-[1200px] sticky top-0 flex h-[100svh] min-h-[560px] w-full flex-col items-center justify-center overflow-hidden bg-luaz-bg md:min-h-[620px]">
+    <section ref={containerRef} className="relative h-[240vh] bg-luaz-bg border-t border-black/5" id="ritual">
+      <div className="perspective-[1200px] sticky top-0 flex h-[100svh] min-h-[560px] w-full flex-col items-center justify-center overflow-hidden bg-luaz-bg">
         
-        {/* Soft emotional background */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <motion.img
-            src="/images/model.png"
-            alt=""
-            aria-hidden="true"
-            style={{ scale: bgScale }}
-            className="h-full w-full object-cover object-center opacity-[0.5] blur-[2px]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#f5f3ef]/80 via-transparent to-[#f5f3ef]/90" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(245,243,239,0.35)_55%,rgba(245,243,239,0.85)_100%)]" />
-        </div>
-
+        {/* Intro Text */}
         <motion.div 
           style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
           className="absolute top-[12%] z-30 w-full px-5 text-center sm:top-[15%] md:top-[20%]"
@@ -157,9 +271,10 @@ export default function RitualExperienceSection() {
           <h2 className="mb-6 font-serif text-[2.8rem] font-light leading-none tracking-tight text-black sm:text-6xl md:mb-8 md:text-[5.5rem] lg:text-[7.5rem]">
             Beginnt das Ritual.
           </h2>
-          <div className="mx-auto mt-8 h-16 w-[1px] bg-gradient-to-b from-black/20 to-transparent md:mt-12 md:h-24" />
+          <div className="mx-auto mt-8 h-16 w-[1px] bg-gradient-to-b from-black/10 to-transparent md:mt-12 md:h-24" />
         </motion.div>
 
+        {/* Box Rig */}
         <motion.div 
           style={{ 
             scale: boxScale, 
@@ -169,23 +284,21 @@ export default function RitualExperienceSection() {
             transformStyle: "preserve-3d",
             willChange: "transform, opacity"
           }}
-          className="relative z-20 mt-8 h-[68vw] min-h-[214px] max-h-[282px] w-[68vw] min-w-[214px] max-w-[282px] md:h-[390px] md:w-[390px] md:max-w-none"
+          className="relative z-20 h-[68vw] min-h-[214px] max-h-[282px] w-[68vw] min-w-[214px] max-w-[282px] md:h-[350px] md:w-[350px] md:max-w-none pointer-events-none"
         >
-          <div className="theme-media absolute inset-0 flex items-center justify-center overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#0a0a0a] shadow-[0_44px_120px_rgba(0,0,0,0.78)]">
+          <div className="theme-media absolute inset-0 flex items-center justify-center overflow-hidden rounded-[18px] border border-black/5 bg-[#0a0a0a] shadow-[0_30px_80px_rgba(0,0,0,0.12)]">
             <Image 
-              src="/back_box_sample_1.png"
+              src="/images/box_open.png"
               alt="Box interior"
               fill
               className="object-cover opacity-80"
-              sizes="(max-width: 768px) 68vw, 390px"
+              sizes="(max-width: 768px) 68vw, 350px"
             />
             
             <motion.div 
-              style={{ opacity: glowOpacity, scale: glowScale, willChange: "transform, opacity" }}
-              className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(201,178,142,0.62)_0%,transparent_70%)] blur-2xl"
+              style={{ opacity: glowOpacity, willChange: "opacity" }}
+              className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0%,transparent_70%)] blur-2xl"
             />
-            
-            <div className="absolute inset-0 z-10 bg-black/40" />
           </div>
 
           <motion.div 
@@ -199,46 +312,23 @@ export default function RitualExperienceSection() {
             }}
             className="absolute inset-0 z-30"
           >
-            <div className="theme-media relative flex h-full w-full items-center justify-center overflow-hidden rounded-[18px] bg-white shadow-[0_30px_80px_rgba(0,0,0,0.1)] border border-black/5 [backface-visibility:hidden]">
+            <div className="theme-media relative flex h-full w-full items-center justify-center overflow-hidden rounded-[18px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-black/5 [backface-visibility:hidden]">
               <Image 
-                src="/box_sample_front.png"
+                src="/images/box_closed.png"
                 alt="LUAZ Box"
                 fill
                 className="object-cover opacity-90 saturate-[1.2] brightness-[1.1]"
-                sizes="(max-width: 768px) 68vw, 390px"
+                sizes="(max-width: 768px) 68vw, 350px"
               />
             </div>
             
-            <div className="absolute inset-0 flex items-center justify-center rounded-[18px] border border-black/5 bg-[#f0f0f0] shadow-[inset_0_0_40px_rgba(0,0,0,0.05)]" style={{ transform: "rotateX(180deg)", backfaceVisibility: "hidden" }}>
-              <span className="text-xs uppercase font-medium tracking-[0.4em] text-black/20">Beginnt das Ritual</span>
+            <div className="absolute inset-0 flex items-center justify-center rounded-[18px] border border-black/5 bg-[#f0f0f0] shadow-[inset_0_0_40px_rgba(0,0,0,0.03)]" style={{ transform: "rotateX(180deg)", backfaceVisibility: "hidden" }}>
             </div>
           </motion.div>
         </motion.div>
 
-        {objects.map((obj, i) => (
-          <FloatingObject
-            key={obj.id}
-            isDesktop={isDesktop}
-            obj={obj}
-            index={i}
-            scrollYProgress={scrollYProgress}
-          />
-        ))}
-
-        <motion.div 
-          style={{ opacity: stageGlowOpacity }}
-          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.025)_0%,transparent_64%)]"
-        />
-
-        <motion.div 
-          style={{ opacity: finalTextOpacity, y: finalTextY }}
-          className="absolute bottom-5 z-50 flex flex-col items-center gap-2 px-5 text-center sm:bottom-7 md:bottom-10 md:gap-3"
-        >
-          <p className="text-[9px] uppercase tracking-[0.28em] font-medium text-black/40 md:text-[10px] md:tracking-[0.36em]">Das vollständige Ritualsystem</p>
-          <p className="max-w-[300px] text-xs font-light leading-5 text-black/80 sm:max-w-[420px] md:max-w-[520px] md:text-base md:leading-6">
-            Fünf Sinnesreize. Eine Abendstruktur. Täglich wiederholt — bis dein Körper sie kennt.
-          </p>
-        </motion.div>
+        {/* Group Reveal - All 5 Videos */}
+        <GroupVideoReveal scrollYProgress={scrollYProgress} />
 
       </div>
     </section>

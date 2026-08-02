@@ -502,7 +502,7 @@ export function Scene1_Assembly({ products }: Scene1AssemblyProps) {
             className="absolute left-1/2 top-[6px] h-[162px] w-[332px] -translate-x-1/2 overflow-hidden rounded-[8px] border border-[rgba(248,246,242,0.18)] bg-luaz-stone shadow-[0_42px_132px_rgba(0,0,0,0.44)]"
           >
             <Image
-              src="/back_box_sample_1.png"
+              src="/media/box/luaz-box-open.webp"
               alt=""
               fill
               priority
@@ -517,7 +517,7 @@ export function Scene1_Assembly({ products }: Scene1AssemblyProps) {
             className="absolute bottom-0 left-1/2 h-[368px] w-[356px] -translate-x-1/2 overflow-hidden rounded-[8px] border border-[rgba(248,246,242,0.16)] bg-luaz-stone shadow-[0_80px_200px_rgba(0,0,0,0.5),0_22px_62px_rgba(0,0,0,0.24)]"
           >
             <Image
-              src="/box_sample_front.jpeg"
+              src="/media/box/luaz-box-closed.webp"
               alt="LUAZ collection box"
               fill
               priority

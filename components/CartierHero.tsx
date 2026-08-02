@@ -14,7 +14,7 @@ export function CartierHero() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/luaz-hero.mp4"
+        src="/media/hero/luaz-hero-mobile.mp4"
         autoPlay
         muted
         loop
@@ -29,8 +29,8 @@ export function CartierHero() {
       <header className="absolute top-0 left-0 z-50 w-full px-6 py-6 sm:px-10">
         <div className="relative flex items-center justify-center">
           <nav className="absolute left-0 hidden gap-8 text-[11px] font-medium uppercase tracking-[0.25em] text-white/80 md:flex">
-            <a href="#ritual" className="transition-colors hover:text-white">Ritual</a>
-            <a href="#ritual-sequence" className="transition-colors hover:text-white">Sequence</a>
+            <a href="#ritual" className="transition-colors hover:text-white">ritual</a>
+            <a href="#ritual-sequence" className="transition-colors hover:text-white">sequence</a>
           </nav>
 
           <div className="font-cursive text-[3.5rem] tracking-normal text-white drop-shadow-md md:text-7xl lg:text-[5.5rem] mt-2">
@@ -38,9 +38,9 @@ export function CartierHero() {
           </div>
 
           <nav className="absolute right-0 hidden gap-8 text-[11px] font-medium uppercase tracking-[0.25em] text-white/80 md:flex">
-            <a href="#app-companion" className="transition-colors hover:text-white">App</a>
-            <a href="#founder-story" className="transition-colors hover:text-white">Founder</a>
-            <a href="#contact" className="transition-colors hover:text-white">Contact</a>
+            <a href="#app-companion" className="transition-colors hover:text-white">app</a>
+            <a href="#founder-story" className="transition-colors hover:text-white">founder</a>
+            <a href="#contact" className="transition-colors hover:text-white">contact</a>
           </nav>
         </div>
       </header>

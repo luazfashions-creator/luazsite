@@ -3,11 +3,11 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 
 const objects = [
-  { id: "tea", label: "Signal", name: "Chamomile Tea", image: "/chamomile.jpg" },
-  { id: "salt", label: "Warmth", name: "Bath Salt", image: "/bath_salt.jpeg" },
-  { id: "oil", label: "Scent", name: "Essential Oil", image: "/lavender_essential_oil.jpeg" },
-  { id: "diffuser", label: "Environment", name: "Diffuser", image: "/diffuser.jpg" },
-  { id: "socks", label: "Comfort", name: "Hemp Socks", image: "/lavenderbathsalt.jpg" }
+  { id: "tea", label: "Signal", name: "Chamomile Tea", image: "/media/products/tea.webp" },
+  { id: "salt", label: "Warmth", name: "Bath Salt", image: "/media/products/bath-salt.webp" },
+  { id: "oil", label: "Scent", name: "Essential Oil", image: "/media/products/essential-oil.webp" },
+  { id: "diffuser", label: "Environment", name: "Diffuser", image: "/media/products/diffuser.webp" },
+  { id: "socks", label: "Comfort", name: "Hemp Socks", image: "/media/products/essential-oil.webp" }
 ];
 
 function RitualObject({ obj, index, scrollYProgress }: { obj: typeof objects[0], index: number, scrollYProgress: MotionValue<number> }) {

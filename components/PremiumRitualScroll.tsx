@@ -349,7 +349,7 @@ export function PremiumRitualScroll() {
       <span id="ritual" className="absolute top-[100vh]" aria-hidden="true" />
       <div className="sticky top-0 h-[100svh] min-h-[560px] overflow-hidden bg-[#172b28] md:min-h-[620px]">
         <motion.img
-          src="/assets/heroimage.png"
+          src="/media/hero/luaz-hero-poster.webp"
           alt="LUAZ evening ritual atmosphere"
           loading="eager"
           fetchPriority="high"
@@ -488,7 +488,7 @@ export function PremiumRitualScroll() {
                   className="absolute -inset-[18%] bg-[radial-gradient(circle,rgba(246,247,242,0.76),rgba(120,157,132,0.34)_36%,transparent_70%)] blur-2xl"
                 />
                 <img
-                  src="/assets/back_box_sample_1.png"
+                  src="/media/box/luaz-box-open.webp"
                   alt="LUAZ ritual box interior"
                   className="absolute inset-0 h-full w-full rounded-[8px] object-cover opacity-[0.42] saturate-[0.86]"
                 />
@@ -527,7 +527,7 @@ export function PremiumRitualScroll() {
                 className="absolute inset-x-0 top-0 h-[64%] overflow-hidden rounded-[8px] border border-[#f6f7f2]/20 bg-[#f6f7f2]/10 shadow-[0_58px_150px_rgba(0,0,0,0.42)] backdrop-blur-[12px] [transform-style:preserve-3d]"
               >
                 <img
-                  src="/assets/box_sample_front.jpeg"
+                  src="/media/box/luaz-box-closed.webp"
                   alt="LUAZ ritual box lid"
                   className="absolute inset-0 h-full w-full object-cover opacity-[0.72]"
                 />

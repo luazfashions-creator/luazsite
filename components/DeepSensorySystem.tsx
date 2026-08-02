@@ -8,21 +8,21 @@ const rows = [
     title: "Grown for stillness.",
     body:
       "Chamomile and linden blossom give the nervous system its first signal. We did not choose them for taste. We chose them for what they tell the body to do.",
-    image: "/assets/chamomile.jpg"
+    image: "/media/products/tea.webp"
   },
   {
     label: "Temperature",
     title: "Heat moves where sleep needs it.",
     body:
       "DEEP begins when core temperature descends. The thermal salt ritual helps the body move heat outward before sleep begins.",
-    image: "/assets/lavenderbathsalt.jpg"
+    image: "/media/products/essential-oil.webp"
   },
   {
     label: "Touch",
     title: "The body listens through skin.",
     body:
       "Four drops of hemp oil. Circular motion. Ninety seconds. The sole of the foot becomes the input that starts the final descent.",
-    image: "/assets/sandalwood.jpg"
+    image: "/media/products/diffuser.webp"
   }
 ];
 

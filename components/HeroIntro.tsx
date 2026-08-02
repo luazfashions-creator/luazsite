@@ -189,7 +189,7 @@ export function HeroIntro() {
     >
       <video
         ref={imageRef}
-        src="/herovideo.mp4"
+        src="/media/hero/luaz-hero-desktop.mp4"
         autoPlay
         muted
         loop

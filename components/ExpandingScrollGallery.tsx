@@ -7,7 +7,7 @@ const items = [
   {
     id: "salt",
     title: "Bath Salt",
-    media: "/bathsalt.mp4",
+    media: "/media/ritual/bath-salt.mp4",
     history: "Mineral bathing dates back to ancient Rome and the Dead Sea, used by nobility to restore the body after exertion.",
     science: "Transdermal magnesium absorption relaxes muscles, while the post-bath drop in core body temperature mimics the circadian sleep trigger.",
     tagline: "01 / Warmth"
@@ -15,7 +15,7 @@ const items = [
   {
     id: "oil",
     title: "Essential Oil & Diffuser",
-    media: "/essential_oil.mp4",
+    media: "/media/ritual/essential-oil.mp4",
     history: "Distilled for centuries in European monasteries, lavender oil was the premier remedy for restlessness and melancholy.",
     science: "Inhalation of pure lavender extract has been clinically shown to increase slow-wave (deep) sleep and lower resting heart rate.",
     tagline: "02 / Aromatherapy"
@@ -23,7 +23,7 @@ const items = [
   {
     id: "tea",
     title: "Chamomile Tea",
-    media: "/chamomilevideo.mp4",
+    media: "/media/ritual/tea.mp4",
     history: "Used since ancient Egypt, chamomile was revered as a sacred herb for its profound healing and calming properties.",
     science: "Apigenin, a bioflavonoid in chamomile, binds to GABA receptors in the brain to actively reduce anxiety and initiate the sleep cycle.",
     tagline: "03 / Signal"
@@ -31,7 +31,7 @@ const items = [
   {
     id: "socks",
     title: "Hemp Socks",
-    media: "/hempsocks.mp4",
+    media: "/media/ritual/socks.mp4",
     history: "Woven from one of the oldest domesticated crops, hemp has provided durable, breathable warmth since ancient times.",
     science: "Warming the extremities causes rapid vasodilation, redirecting heat from the core to the skin, which powerfully signals the brain to sleep.",
     tagline: "04 / Comfort"

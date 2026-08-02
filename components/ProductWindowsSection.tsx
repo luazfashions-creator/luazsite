@@ -191,7 +191,7 @@ export function ProductWindowsSection({ onOpenProduct }: ProductWindowsSectionPr
 
           <div className="absolute bottom-0 left-1/2 hidden w-[48%] -translate-x-1/2 overflow-hidden rounded-t-[8px] opacity-40 md:block">
             <img
-              src="/assets/back_box_sample_1.png"
+              src="/media/box/luaz-box-open.webp"
               alt=""
               className="h-[220px] w-full object-cover object-bottom saturate-0"
             />

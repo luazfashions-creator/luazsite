@@ -5,11 +5,11 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
 
 const products = [
-  { id: "01", name: "Bath Salt", role: "Warm water, minerals, and the first signal to slow down.", src: "/bath_salt.jpeg" },
-  { id: "02", name: "Essential Oil", role: "A quiet aromatic anchor for the nervous system.", src: "/lavender_essential_oil.jpeg" },
-  { id: "03", name: "Diffuser", role: "A soft atmosphere before sleep begins.", src: "/diffuser.jpg" },
-  { id: "04", name: "Chamomile Tea", role: "A European evening herb with centuries of bedtime association.", src: "/chamomile.jpg" },
-  { id: "05", name: "Warm Socks", role: "Foot warmth as the final physical signal for rest.", src: "/hempsocks.webp" },
+  { id: "01", name: "Bath Salt", role: "Warm water, minerals, and the first signal to slow down.", src: "/media/products/bath-salt.webp" },
+  { id: "02", name: "Essential Oil", role: "A quiet aromatic anchor for the nervous system.", src: "/media/products/essential-oil.webp" },
+  { id: "03", name: "Diffuser", role: "A soft atmosphere before sleep begins.", src: "/media/products/diffuser.webp" },
+  { id: "04", name: "Chamomile Tea", role: "A European evening herb with centuries of bedtime association.", src: "/media/products/tea.webp" },
+  { id: "05", name: "Warm Socks", role: "Foot warmth as the final physical signal for rest.", src: "/media/products/socks.webp" },
 ];
 
 function FloatingCard({

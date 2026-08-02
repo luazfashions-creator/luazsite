@@ -12,7 +12,7 @@ export function RitualSystemSection() {
   return (
     <section id="origin" className="relative overflow-hidden bg-luaz-ink px-4 py-20 sm:px-5 md:px-8 md:py-40">
       <img
-        src="/assets/back_box_sample_1.png"
+        src="/media/box/luaz-box-open.webp"
         alt="LUAZ ritual box materials"
         className="absolute inset-0 h-full w-full object-cover opacity-[0.13] saturate-[0.72]"
       />

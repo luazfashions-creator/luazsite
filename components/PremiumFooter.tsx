@@ -27,8 +27,9 @@ export function PremiumFooter() {
       <div className="mx-auto mt-16 max-w-7xl border-t border-luaz-border pt-8 flex flex-col items-center justify-between gap-4 text-[9px] uppercase tracking-[0.2em] text-luaz-text-muted md:flex-row">
         <span>&copy; {new Date().getFullYear()} LUAZ. Alle Rechte vorbehalten.</span>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-luaz-text transition-colors">Impressum</a>
-          <a href="#" className="hover:text-luaz-text transition-colors">Datenschutz</a>
+          <a href="/versand" className="hover:text-luaz-text transition-colors">Versand & Rückgabe</a>
+          <a href="/impressum" className="hover:text-luaz-text transition-colors">Impressum</a>
+          <a href="/datenschutz" className="hover:text-luaz-text transition-colors">Datenschutz</a>
         </div>
       </div>
     </footer>

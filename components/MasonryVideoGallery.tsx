@@ -17,7 +17,7 @@ const items: GalleryItem[] = [
   {
     id: "tea",
     title: "Chamomile Tea",
-    media: "/chamomilevideo.mp4",
+    media: "/media/ritual/tea.mp4",
     history: "Used since ancient Egypt, chamomile was revered as a sacred herb for its profound healing and calming properties.",
     story: "A quiet, warm cup acts as the first deliberate pause. It forces you to slow down and savor the transition into the evening.",
     science: "Apigenin, a bioflavonoid in chamomile, binds to GABA receptors in the brain to actively reduce anxiety and initiate the sleep cycle.",
@@ -26,7 +26,7 @@ const items: GalleryItem[] = [
   {
     id: "salt",
     title: "Bath Salt",
-    media: "/bathsalt.mp4",
+    media: "/media/ritual/bath-salt.mp4",
     history: "Mineral bathing dates back to ancient Rome and the Dead Sea, used by nobility to restore the body after exertion.",
     story: "Submerging in stillness. The water absorbs the noise of the day, leaving only the sensation of weightlessness.",
     science: "Transdermal magnesium absorption relaxes muscles, while the post-bath drop in core body temperature mimics the circadian sleep trigger.",
@@ -35,7 +35,7 @@ const items: GalleryItem[] = [
   {
     id: "oil",
     title: "Essential Oil",
-    media: "/essential_oil.mp4",
+    media: "/media/ritual/essential-oil.mp4",
     history: "Distilled for centuries in European monasteries, lavender oil was the premier remedy for restlessness and melancholy.",
     story: "A drop of scent that anchors the room. It creates a powerful sensory trigger—when this scent fills the air, sleep is imminent.",
     science: "Inhalation of pure lavender extract has been clinically shown to increase slow-wave (deep) sleep and lower resting heart rate.",
@@ -44,7 +44,7 @@ const items: GalleryItem[] = [
   {
     id: "socks",
     title: "Hemp Socks",
-    media: "/hempsocks.mp4",
+    media: "/media/ritual/socks.mp4",
     history: "Woven from one of the oldest domesticated crops, hemp has provided durable, breathable warmth since ancient times.",
     story: "The final layer of comfort. Soft pressure on the feet closes the ritual, locking in the warmth generated throughout the evening.",
     science: "Warming the extremities causes rapid vasodilation, redirecting heat from the core to the skin, which powerfully signals the brain to sleep.",

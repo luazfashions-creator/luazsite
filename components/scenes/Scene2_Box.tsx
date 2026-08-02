@@ -277,7 +277,7 @@ export function Scene2_Box() {
           >
             <Image
               ref={topImageRef}
-              src="/box_sample_front.jpeg"
+              src="/media/box/luaz-box-closed.webp"
               alt="LUAZ box upper half"
               fill
               priority
@@ -292,7 +292,7 @@ export function Scene2_Box() {
           >
             <Image
               ref={bottomImageRef}
-              src="/box_sample_front.jpeg"
+              src="/media/box/luaz-box-closed.webp"
               alt="LUAZ box lower half"
               fill
               priority

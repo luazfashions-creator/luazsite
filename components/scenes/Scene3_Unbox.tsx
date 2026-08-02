@@ -155,7 +155,7 @@ export function Scene3_Unbox({ products }: Scene3UnboxProps) {
           <div className="absolute left-1/2 top-[78%] h-[58px] w-[360px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(42,39,36,0.13)_0%,rgba(42,39,36,0.05)_42%,transparent_74%)] blur-xl" />
           <div className="absolute left-1/2 top-[12%] h-[150px] w-[260px] -translate-x-1/2 overflow-hidden rounded-[6px] border border-[rgba(42,39,36,0.06)] bg-luaz-stone shadow-[0_24px_64px_rgba(42,39,36,0.12)] [transform-origin:50%_100%] [transform-style:preserve-3d] [transform:rotateX(-58deg)]">
             <Image
-              src="/back_box_sample_1.png"
+              src="/media/box/luaz-box-open.webp"
               alt=""
               fill
               sizes="260px"
@@ -165,7 +165,7 @@ export function Scene3_Unbox({ products }: Scene3UnboxProps) {
           </div>
           <div className="absolute bottom-0 left-1/2 h-[150px] w-[300px] -translate-x-1/2 overflow-hidden rounded-[6px] border border-[rgba(42,39,36,0.06)] bg-luaz-stone shadow-[0_34px_90px_rgba(42,39,36,0.14)]">
             <Image
-              src="/box_sample_front.jpeg"
+              src="/media/box/luaz-box-closed.webp"
               alt=""
               fill
               sizes="300px"

@@ -24,7 +24,7 @@ export const products: LuazProduct[] = [
     cue: "Grounding touch",
     windowNote:
       "The closing layer of the ritual, worn when the room is already quiet and the body is ready to settle.",
-    image: "/hempsocks.webp",
+    image: "/media/products/socks.webp",
     video: null,
     accentColor: "#C8BFB0",
     finalX: "-38vw",
@@ -41,7 +41,7 @@ export const products: LuazProduct[] = [
     cue: "Scent memory",
     windowNote:
       "A soft aromatic marker repeated until calm becomes familiar and the night begins to feel remembered.",
-    image: "/chamomile.jpg",
+    image: "/media/products/tea.webp",
     video: null,
     accentColor: "#C9C0D3",
     finalX: "-18vw",
@@ -58,7 +58,7 @@ export const products: LuazProduct[] = [
     cue: "Mineral release",
     windowNote:
       "A dissolving window where the pace leaves the body and the evening turns physical rather than mental.",
-    image: "/bath_salt3.jpeg",
+    image: "/media/products/bath-salt.webp",
     video: null,
     accentColor: "#D4CEC6",
     finalX: "0vw",
@@ -74,8 +74,8 @@ export const products: LuazProduct[] = [
     cue: "Warm beginning",
     windowNote:
       "The internal threshold of the ritual, taken slowly so the final hour starts from within rather than around you.",
-    image: "/chamomile.jpg",
-    video: "/chamomilevideo.mp4",
+    image: "/media/products/tea.webp",
+    video: "/media/ritual/tea.mp4",
     accentColor: "#D6C99A",
     finalX: "18vw",
     finalY: "-22vh",
@@ -91,7 +91,7 @@ export const products: LuazProduct[] = [
     cue: "Floral sleep signal",
     windowNote:
       "A softer botanical signal that lets the room hold the ritual after the tea has gone quiet.",
-    image: "/lavender_essential_oil.jpeg",
+    image: "/media/products/essential-oil.webp",
     video: null,
     accentColor: "#D8C88F",
     finalX: "38vw",

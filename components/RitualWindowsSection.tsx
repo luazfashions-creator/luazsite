@@ -19,7 +19,7 @@ const signals: SignalData[] = [
     description:
       "The ritual opens with warmth. A quiet visual cue that tells the body the day is beginning to close.",
     science: "Apigenin, a bioflavonoid in chamomile, binds to GABA receptors in the brain to actively reduce anxiety and initiate the sleep cycle.",
-    media: "/chamomilevideo.mp4",
+    media: "/media/ritual/tea.mp4",
     mediaSide: "left"
   },
   {
@@ -29,7 +29,7 @@ const signals: SignalData[] = [
     description:
       "Minerals, heat, and stillness create a deliberate descent from activity into recovery.",
     science: "Transdermal magnesium absorption relaxes muscles, while the rapid post-bath drop in core body temperature mimics the circadian sleep trigger.",
-    media: "/bathsalt.mp4",
+    media: "/media/ritual/bath-salt.mp4",
     mediaSide: "right"
   },
   {
@@ -38,7 +38,7 @@ const signals: SignalData[] = [
     title: "Essential Oil",
     description: "A repeated scent that becomes part of your sleep memory.",
     science: "Inhalation of pure lavender extract has been shown to increase slow-wave (deep) sleep and lower heart rate during the night.",
-    media: "/essential_oil.mp4",
+    media: "/media/ritual/essential-oil.mp4",
     mediaSide: "left"
   },
   {
@@ -48,7 +48,7 @@ const signals: SignalData[] = [
     description:
       "The final layer of warmth. Soft pressure and comfort close the ritual without noise.",
     science: "Warming the extremities causes vasodilation, redirecting heat from the core to the skin, which signals the brain that it's time to sleep.",
-    media: "/hempsocks.mp4",
+    media: "/media/ritual/socks.mp4",
     mediaSide: "right"
   }
 ];

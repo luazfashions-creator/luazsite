@@ -2,7 +2,7 @@ export function RitualBox({ className = "" }: { className?: string }) {
   return (
     <div className={`ritual-box rounded-[8px] ${className}`}>
       <img
-        src="/assets/box_sample_front.jpeg"
+        src="/media/box/luaz-box-closed.webp"
         alt="LUAZ ritual box"
         className="absolute inset-0 h-full w-full object-cover opacity-[0.96] saturate-[1.04]"
       />

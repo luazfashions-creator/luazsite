@@ -160,7 +160,7 @@ export function TransformationSection() {
     >
       <img
         ref={backgroundRef}
-        src="/assets/heroimage.png"
+        src="/media/hero/luaz-hero-poster.webp"
         alt="Evening ritual atmosphere"
         className="absolute inset-0 h-full w-full transform-gpu object-cover object-[43%_center] opacity-[0.12] saturate-[0.78]"
       />

@@ -12,7 +12,7 @@ export default function HeroVideo() {
           playsInline
           className="object-cover w-full h-full opacity-100"
         >
-          <source src="/herovideo.mp4" type="video/mp4" />
+          <source src="/media/hero/luaz-hero-desktop.mp4" type="video/mp4" />
         </video>
         <div 
           className="absolute inset-0 z-10" 

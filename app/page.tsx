@@ -1,6 +1,8 @@
 import { CartierHero } from "@/components/CartierHero";
 import RitualExperienceSection from "@/components/RitualExperienceSection";
-import { RitualSequence } from "@/components/RitualSequence";
+import { OriginTheorySection } from "@/components/OriginTheorySection";
+import { TestimonialSection } from "@/components/TestimonialSection";
+import { ScratchCardSection } from "@/components/ScratchCardSection";
 import { AppCompanion } from "@/components/AppCompanion";
 import { FounderStory } from "@/components/FounderStory";
 import { ContactSection } from "@/components/ContactSection";
@@ -13,7 +15,9 @@ export default function Home() {
       <CartierHero />
       <RitualExperienceSection />
       <AcquireKitSection />
-      <RitualSequence />
+      <OriginTheorySection />
+      <TestimonialSection />
+      <ScratchCardSection />
       <AppCompanion />
       <FounderStory />
       <ContactSection />

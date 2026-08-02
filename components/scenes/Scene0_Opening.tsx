@@ -15,7 +15,7 @@ export function Scene0_Opening() {
   return (
     <section className="luaz-cinema-bars relative h-[100svh] w-screen overflow-hidden bg-[#dbe5de]">
       <Image
-        src="/heroimage.png"
+        src="/media/hero/luaz-hero-poster.webp"
         alt="LUAZ ritual atmosphere"
         fill
         priority
