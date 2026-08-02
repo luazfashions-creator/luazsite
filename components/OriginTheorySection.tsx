@@ -18,7 +18,7 @@ export function OriginTheorySection() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full h-screen min-h-[800px] flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full min-h-[100svh] py-16 md:py-24 flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Cinematic Himalaya Background - Unblurred & Full Color */}
       <motion.div 

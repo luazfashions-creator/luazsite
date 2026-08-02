@@ -198,34 +198,48 @@ function GroupVideoReveal({
         })}
       </div>
 
-      {/* Mobile Layout - Premium Horizontal Scroll */}
-      <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 w-[100vw] px-8 pb-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        {products.map((product, i) => {
-          return (
-            <div key={product.id} className={`w-[75vw] flex-shrink-0 snap-center flex flex-col pointer-events-auto`}>
-               {/* Video Container */}
-               <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl border border-[rgba(29,29,31,0.08)] bg-luaz-stone mb-5">
-                 {reducedMotion ? (
-                   <Image src={product.fallbackImage} alt={product.title} fill className="object-cover" />
-                 ) : (
-                   <VideoPlayer 
-                     isActive={isActive} 
-                     src={product.media} 
-                     poster={product.fallbackImage} 
-                     muted loop playsInline 
-                     className="absolute inset-0 h-full w-full object-cover saturate-[1.05]" 
-                   />
-                 )}
-               </div>
-               {/* Text Container */}
-               <div className="px-2 text-center">
-                 <p className="text-[10px] tracking-[0.2em] font-medium uppercase text-luaz-gold-soft mb-2">Step {i + 1}</p>
-                 <h4 className="font-serif text-[20px] leading-tight text-luaz-text mb-3">{product.title}</h4>
-                 <p className="text-[12px] leading-relaxed text-luaz-text/70 px-4">{product.overviewDescription}</p>
-               </div>
-            </div>
-          )
-        })}
+      {/* Mobile Layout - Premium Horizontal Scroll with Arrows */}
+      <div className="relative w-[100vw] flex md:hidden items-center">
+        
+        {/* Left Hint Arrow */}
+        <div className="absolute left-3 z-40 p-2.5 rounded-full bg-white/20 backdrop-blur-md shadow-sm pointer-events-none text-white/70">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </div>
+
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 w-full px-12 pb-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+          {products.map((product, i) => {
+            return (
+              <div key={product.id} className={`w-[75vw] flex-shrink-0 snap-center flex flex-col pointer-events-auto`}>
+                 {/* Video Container */}
+                 <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl border border-[rgba(29,29,31,0.08)] bg-luaz-stone mb-5">
+                   {reducedMotion ? (
+                     <Image src={product.fallbackImage} alt={product.title} fill className="object-cover" />
+                   ) : (
+                     <VideoPlayer 
+                       isActive={isActive} 
+                       src={product.media} 
+                       poster={product.fallbackImage} 
+                       muted loop playsInline 
+                       className="absolute inset-0 h-full w-full object-cover saturate-[1.05]" 
+                     />
+                   )}
+                 </div>
+                 {/* Text Container */}
+                 <div className="px-2 text-center">
+                   <p className="text-[10px] tracking-[0.2em] font-medium uppercase text-luaz-gold-soft mb-2">Step {i + 1}</p>
+                   <h4 className="font-serif text-[20px] leading-tight text-luaz-text mb-3">{product.title}</h4>
+                   <p className="text-[12px] leading-relaxed text-luaz-text/70 px-4">{product.overviewDescription}</p>
+                 </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Right Hint Arrow */}
+        <div className="absolute right-3 z-40 p-2.5 rounded-full bg-white/20 backdrop-blur-md shadow-sm pointer-events-none text-white/70 animate-pulse">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+
       </div>
     </motion.div>
   );
